@@ -1,0 +1,16 @@
+.page{
+    display: inline-block;
+    border: 1px solid black;
+    padding: 5px;
+    cursor: pointer;
+}
+.current-page {
+    background-color: aqua;
+    cursor: default;
+    pointer-events: none;
+}
+.last-first-page {
+    background-color: gray;
+    cursor: default;
+    pointer-events: none;
+}

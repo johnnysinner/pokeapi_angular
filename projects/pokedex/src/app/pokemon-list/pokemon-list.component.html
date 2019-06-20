@@ -1,0 +1,7 @@
+<div class="pokemon-container">
+  <div *ngFor="let pokemon of pokemonList" class="pokemon-name">
+    {{ pokemon.name }}
+  </div>
+</div>
+
+<app-pagination [limitPerPage]="limit"></app-pagination>

@@ -1,0 +1,14 @@
+<div [routerLink]="['../', currentPage - 1]" [ngClass]="{'page': true,  'last-first-page' : currentPage === 1}">
+  prev
+</div>
+
+<div *ngFor="let pageNum of pages" 
+  [routerLink]="['../', pageNum]" 
+  (click)="setCurrentPage(pageNum)"
+  [ngClass]="{'page': true,  'current-page' : pageNum === currentPage}">
+      {{pageNum}}
+</div>
+
+<div [routerLink]="['../', currentPage + 1]" [ngClass]="{'page': true, 'last-first-page' : currentPage === totalPageCount}">
+  next
+</div>
