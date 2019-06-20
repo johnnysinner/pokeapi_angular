@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { PokemonService } from '../_services/pokemon.service';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-profile',
@@ -11,22 +12,48 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./pokemon-profile.component.css']
 })
 export class PokemonProfileComponent implements OnInit, OnDestroy {
-  pokemon = new Pokemon();
+  name: any;
   subs: Subscription;
-  constructor(private pokemonService: PokemonService, private route: ActivatedRoute) { }
+  pokemon = new Pokemon();
+  pokemonName: string;
+  defaultImg = 'https://image.flaticon.com/icons/png/128/528/528101.png';
+  isPokemonExist: boolean;
+  constructor(
+    private pokemonService: PokemonService,
+    private route: ActivatedRoute,
+    private location: Location,
+    ) { }
 
   ngOnInit() {
     this.subs = this.route.params.pipe(
       switchMap((params) => {
         return this.pokemonService.getPokemonDetailsByName(params.pokemonName);
       })
-    ).subscribe((response: Pokemon) => {
+    ).subscribe(
+      (response: Pokemon) => {
+      this. isPokemonExist = true;
       this.pokemon = response;
-    });
+      },
+      error => {
+        this. isPokemonExist = error.ok;
+      },
+    );
   }
 
   ngOnDestroy() {
     this.subs.unsubscribe();
+  }
+
+  goBack() {
+    this.location.back();
+  }
+
+  goHome() {
+    this.location.go('pokemon-list/1');
+  }
+
+  getImg() {
+    return (this.pokemon.sprites.front_default !== null ) ? this.pokemon.sprites.front_default : this.defaultImg;
   }
 
 }

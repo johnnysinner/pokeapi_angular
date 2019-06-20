@@ -16,7 +16,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   subs: Subscription;
   offset: number;
   currentPage: number;
-  limit = 56;
+  limit = 54;
   constructor(
     private pokeService: PokemonService,
     private route: ActivatedRoute,
@@ -41,4 +41,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
+  getIdByUrl(url: string) {
+    return url.split('/')[6];
+  }
 }

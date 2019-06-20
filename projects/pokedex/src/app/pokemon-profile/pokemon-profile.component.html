@@ -1,5 +1,53 @@
-<p *ngIf="pokemon.name">
-  pokemon-profile works!
-  
-{{ pokemon.name | formatName }} 
-</p>
+<div class="container-pokemon-details" *ngIf="isPokemonExist">
+  <div class="pokemon-name">
+    <label>{{ pokemon.name | formatName }}</label>
+  </div>
+  <div class="pokemon-sprite">
+    <img [attr.src]="getImg()">
+  </div>
+  <div class="pokemon-sprite">
+    <label> ID : </label>
+    <label> {{ pokemon.id }} </label>
+  </div>
+  <div class="pokemon-type" *ngIf="pokemon.types">
+    <div [class]="types.type.name + ' type'" *ngFor="let types of pokemon.types">
+      <label>{{ types.type.name | formatName }}</label>
+    </div>
+  </div>
+
+  <div class="pokemon-abilities" *ngIf="pokemon.abilities">
+      <div> Abilities: </div>
+      <div *ngFor="let abilities of pokemon.abilities">
+        <label *ngIf="abilities.is_hidden">
+              {{ abilities.ability.name | formatName }} (H)
+        </label>
+        <label *ngIf="!abilities.is_hidden">
+              {{ abilities.ability.name | formatName }}
+        </label>
+      </div>
+  </div>
+
+  <div *ngIf="pokemon.stats">
+    Stats: 
+      <div *ngFor="let stats of pokemon.stats">
+          <label> 
+            {{ stats.stat.name | formatName }} : {{ stats.base_stat }}
+          </label>
+      </div>
+    </div>
+  <div class="pokemon-details">
+    Pokemon Details
+    <div>
+      <label> Weight : </label>
+      <label> {{ pokemon.weight * .1 | number : '1.1' }} kg </label>
+    </div>
+    <div>
+      <label> Height : </label>
+      <label> {{ pokemon.height * 10 | number : '1.2-2' }} cm </label>
+    </div>
+  </div>
+</div>
+
+<div class="container-pokemon-details" *ngIf="!isPokemonExist">
+  This pokemon {{ pokemonName }} doesn't exist.
+</div>
