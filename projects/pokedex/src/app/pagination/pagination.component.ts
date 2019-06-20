@@ -17,8 +17,7 @@ export class PaginationComponent implements OnInit , OnDestroy {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.totalPageCount = Math.ceil( this.totalPokemon / 50 );
-    console.log(this.limitPerPage);
+    this.totalPageCount = Math.ceil( this.totalPokemon / this.limitPerPage );
     for (let i = 0; i < this.totalPageCount; i++) {
         this.pages.push(i + 1);
     }

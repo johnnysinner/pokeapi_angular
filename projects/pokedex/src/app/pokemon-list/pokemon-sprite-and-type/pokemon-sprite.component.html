@@ -1,0 +1,9 @@
+<div *ngIf="pokemon.sprites">
+  <img [attr.src]="getImgUrl()">
+</div>
+
+<div *ngIf="pokemon.types">
+  <div *ngFor="let types of pokemon.types" [ngClass]="['type', types.type.name]">
+    {{ types.type.name | formatName }}
+  </div>
+</div>

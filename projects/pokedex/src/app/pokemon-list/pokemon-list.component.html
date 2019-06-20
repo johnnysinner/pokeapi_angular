@@ -1,6 +1,6 @@
 <div class="pokemon-container">
-  <div *ngFor="let pokemon of pokemonList.results" class="pokemon-name">
-    <app-pokemon-sprite [pokemonName]="pokemon.name" *ngIf="pokemon.name"></app-pokemon-sprite>
+  <div *ngFor="let pokemon of pokemonList.results" class="pokemon-name" [routerLink]="['/pokemon', pokemon.name ]">
+    <app-pokemon-sprite-and-type [pokemonName]="pokemon.name" *ngIf="pokemon.name"></app-pokemon-sprite-and-type>
     {{ pokemon.name | formatName }} 
   </div>
 </div>

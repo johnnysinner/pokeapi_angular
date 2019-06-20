@@ -4,6 +4,7 @@ import { PokemonService } from '../_services/pokemon.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -15,14 +16,18 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   subs: Subscription;
   offset: number;
   currentPage: number;
-  limit = 50;
+  limit = 100;
   constructor(
     private pokeService: PokemonService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private location: Location) { }
 
   ngOnInit() {
     this.subs = this.route.params.pipe(
       switchMap((params) => {
+        if (+params.page < 1 || +params.page > Math.ceil( 964 / this.limit ) || isNaN(+params.page) ) {
+          this.location.back();
+        }
         this.currentPage = params.page;
         this.offset = (+params.page - 1) * this.limit;
         return this.pokeService.getPokemonList(this.offset, this.limit);

@@ -4,7 +4,7 @@ import { PokemonService } from '../../_services/pokemon.service';
 import { Pokemon } from '../../_models/pokemon.model';
 
 @Component({
-  selector: 'app-pokemon-sprite',
+  selector: 'app-pokemon-sprite-and-type',
   templateUrl: './pokemon-sprite.component.html',
   styleUrls: ['./pokemon-sprite.component.css']
 })
@@ -20,7 +20,6 @@ export class PokemonSpriteComponent implements OnInit, OnDestroy {
     this.subs = this.pokemonService.getPokemonDetailsByName(this.pokemonName).subscribe(
       (response: Pokemon) => {
         this.pokemon = response;
-        this.pokemonSprite = this.pokemon.sprites.front_default;
         }
     );
   }
@@ -30,7 +29,7 @@ export class PokemonSpriteComponent implements OnInit, OnDestroy {
   }
 
   getImgUrl() {
-    return (this.pokemon.sprites.front_default != null) ? this.pokemonSprite : this.defaultUrl ;
+    return (this.pokemon.sprites.front_default != null) ? this.pokemon.sprites.front_default : this.defaultUrl ;
   }
 
 }

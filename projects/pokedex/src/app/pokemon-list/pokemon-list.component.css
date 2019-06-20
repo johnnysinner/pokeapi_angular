@@ -1,4 +1,10 @@
-.pokemon-container {
+.pokemon-name {
     display: inline-block;
-    border: 2px solid black;
+    border: 2px solid black;    
+    width: 150px;
+    height: 200px;
+    overflow: hidden;
+}
+.pokemon-container {
+    text-align: center;
 }
