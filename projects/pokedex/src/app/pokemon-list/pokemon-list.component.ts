@@ -16,7 +16,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   subs: Subscription;
   offset: number;
   currentPage: number;
-  limit = 100;
+  limit = 56;
   constructor(
     private pokeService: PokemonService,
     private route: ActivatedRoute,

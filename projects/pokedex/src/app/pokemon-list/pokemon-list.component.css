@@ -1,10 +1,27 @@
 .pokemon-name {
     display: inline-block;
-    border: 2px solid black;    
-    width: 150px;
+    text-align: center;
+    cursor: pointer;    
+    border: 5px solid white;
+    width: 200px;
     height: 200px;
+    margin: 5px;
+    transition: 0.3s;
+    padding: 10px;
     overflow: hidden;
 }
 .pokemon-container {
     text-align: center;
+}
+.pokemon-name:hover {
+    background-color: #ffc0bf;
+}
+
+.container{
+    text-align: center;
+}
+.pokemon-detail {    
+    font-size: 20px;
+    display: block;
+    font-weight: bold;
 }

@@ -10,6 +10,7 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { FormatName } from './_pipe/formatname.pipe';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PokemonProfileComponent } from './pokemon-profile/pokemon-profile.component';
+import { PokemonTopBarComponent } from './pokemon-top-bar/pokemon-top-bar.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PokemonProfileComponent } from './pokemon-profile/pokemon-profile.compo
     FormatName,
     PageNotFoundComponent,
     PokemonProfileComponent,
+    PokemonTopBarComponent,
   ],
   imports: [
     BrowserModule,

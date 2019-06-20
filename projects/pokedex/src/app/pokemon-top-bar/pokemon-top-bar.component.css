@@ -1,0 +1,15 @@
+.header {
+    overflow: hidden;
+    background-color: #ffa09f;
+    padding: 5px 20px;
+}
+
+.headerLogo {
+    height: 50px;
+    cursor: pointer;
+}
+
+.headerLogoContainer {
+    width: 277px;
+    float: left;
+}
