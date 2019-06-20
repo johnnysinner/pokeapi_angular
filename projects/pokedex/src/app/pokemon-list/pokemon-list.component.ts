@@ -11,7 +11,7 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./pokemon-list.component.css']
 })
 export class PokemonListComponent implements OnInit, OnDestroy {
-  pokemonList: Pokemon;
+  pokemonList = new Pokemon();
   subs: Subscription;
   offset: number;
   currentPage: number;

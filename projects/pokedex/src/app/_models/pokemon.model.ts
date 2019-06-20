@@ -88,7 +88,7 @@
         type: Type2;
     }
 
-    export interface Pokemon {
+    export class Pokemon {
         abilities: Ability[];
         base_experience: number;
         forms: Form[];

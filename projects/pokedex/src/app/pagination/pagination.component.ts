@@ -1,17 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.css']
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent implements OnInit , OnDestroy {
   @Input() limitPerPage: number;
   totalPageCount: number;
   pages = new Array();
   totalPokemon = 964;
   currentPage: number;
+  subs: Subscription;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -20,19 +22,18 @@ export class PaginationComponent implements OnInit {
     for (let i = 0; i < this.totalPageCount; i++) {
         this.pages.push(i + 1);
     }
-    this.route.params.subscribe(
+    this.subs = this.route.params.subscribe(
       params => {
         this.currentPage = +params.page;
       }
     );
   }
 
-  setCurrentPage(pageNum) {
+  setCurrentPage(pageNum: any) {
     this.currentPage = pageNum;
   }
 
-  checkIfFirstPage() {
-    return (this.currentPage === 1) ? true : false ;
+  ngOnDestroy() {
+    this.subs.unsubscribe();
   }
-
 }

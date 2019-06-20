@@ -1,3 +1,3 @@
-<p>
-  pokemon-sprite works!
-</p>
+<div *ngIf="pokemon.sprites">
+  <img [attr.src]="getImgUrl()">
+</div>

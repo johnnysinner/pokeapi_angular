@@ -1,6 +1,7 @@
 <div class="pokemon-container">
-  <div *ngFor="let pokemon of pokemonList" class="pokemon-name">
-    {{ pokemon.name }}
+  <div *ngFor="let pokemon of pokemonList.results" class="pokemon-name">
+    <app-pokemon-sprite [pokemonName]="pokemon.name" *ngIf="pokemon.name"></app-pokemon-sprite>
+    {{ pokemon.name | formatName }}
   </div>
 </div>
 

@@ -1,15 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { PokemonService } from '../../_services/pokemon.service';
+import { Pokemon } from '../../_models/pokemon.model';
 
 @Component({
   selector: 'app-pokemon-sprite',
   templateUrl: './pokemon-sprite.component.html',
   styleUrls: ['./pokemon-sprite.component.css']
 })
-export class PokemonSpriteComponent implements OnInit {
-
-  constructor() { }
+export class PokemonSpriteComponent implements OnInit, OnDestroy {
+  @Input() pokemonName: string;
+  pokemon = new Pokemon();
+  subs: Subscription;
+  pokemonSprite: string;
+  defaultUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png';
+  constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
+    this.subs = this.pokemonService.getPokemonDetailsByName(this.pokemonName).subscribe(
+      (response: Pokemon) => {
+        this.pokemon = response;
+        this.pokemonSprite = this.pokemon.sprites.front_default;
+        }
+    );
+  }
+
+  ngOnDestroy() {
+    this.subs.unsubscribe();
+  }
+
+  getImgUrl() {
+    return (this.pokemon.sprites.front_default != null) ? this.pokemonSprite : this.defaultUrl ;
   }
 
 }

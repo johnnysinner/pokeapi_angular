@@ -7,13 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonSpriteComponent } from './pokemon-list/pokemon-sprite/pokemon-sprite.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { FormatName } from './_pipe/formatname.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonListComponent,
     PokemonSpriteComponent,
-    PaginationComponent
+    PaginationComponent,
+    FormatName
   ],
   imports: [
     BrowserModule,
