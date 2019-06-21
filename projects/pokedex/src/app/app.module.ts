@@ -14,6 +14,7 @@ import { PokemonTopBarComponent } from './pokemon-top-bar/pokemon-top-bar.compon
 import { PokemonEvolutionChainComponent } from './pokemon-evolution-chain/pokemon-evolution-chain.component';
 import { PokemonAbilitiesDetailsComponent } from './pokemon-abilities-details/pokemon-abilities-details.component';
 import { PokemonListByTypeComponent } from './pokemon-list/pokemon-list-by-type/pokemon-list-by-type.component';
+import { PokemonTypesComponent } from './pokemon-list/pokemon-types/pokemon-types.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { PokemonListByTypeComponent } from './pokemon-list/pokemon-list-by-type/
     PokemonEvolutionChainComponent,
     PokemonAbilitiesDetailsComponent,
     PokemonListByTypeComponent,
+    PokemonTypesComponent,
   ],
   imports: [
     BrowserModule,

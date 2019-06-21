@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { Chain } from '../_models/pokemon-evolution.model';
 import { AbilitiesClass } from '../_models/pokemon-abilities.model';
 import { TypeClass } from '../_models/pokemon-type.model';
+import { AllTypes } from '../_models/types.model';
 
 @Injectable({
   providedIn: 'root'
@@ -45,5 +46,9 @@ export class PokemonService {
 
   getPokemonByType(type: string): Observable<TypeClass> {
     return this.http.get<TypeClass>(`${this.baseUrl}/type/${type}`);
+  }
+
+  getAllType(): Observable<AllTypes> {
+    return this.http.get<AllTypes>(`${this.baseUrl}/type/`);
   }
 }

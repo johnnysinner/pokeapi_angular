@@ -1,3 +1,4 @@
+<app-pokemon-types></app-pokemon-types>
 <div class="pokemon-container" *ngIf="pokemonType.pokemon">
   <div *ngFor="let pokemon of pokemonType.pokemon" class="pokemon-name" [routerLink]="['/pokemon', pokemon.pokemon.name ]">
         <div class="pokemon-detail">{{ pokemon.pokemon.name | formatName }}</div>

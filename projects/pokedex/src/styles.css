@@ -69,3 +69,6 @@
 .loading-ball {
     width: 100px;
 }
+.clickable {
+    cursor: pointer;
+}

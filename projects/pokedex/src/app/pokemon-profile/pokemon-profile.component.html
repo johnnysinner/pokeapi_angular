@@ -11,8 +11,8 @@
     <label> {{ pokemon.id }} </label>
   </div>
   <div class="pokemon-type" *ngIf="pokemon.types">
-    <div [class]="types.type.name + ' type'" *ngFor="let types of pokemon.types">
-      <label>{{ types.type.name | formatName }}</label>
+    <div [class]="types.type.name + ' type'" *ngFor="let types of pokemon.types" [routerLink]="['/pokemon-type', types.type.name]">
+      <label class="clickable">{{ types.type.name | formatName }}</label>
     </div>
   </div>
 
