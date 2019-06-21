@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Pokemon } from '../_models/pokemon.model';
+import { Pokemon } from '../../_models/pokemon.model';
 import { Subscription } from 'rxjs';
-import { PokemonService } from '../_services/pokemon.service';
+import { PokemonService } from '../../_services/pokemon.service';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Location } from '@angular/common';
-import { SpeciesClass } from '../_models/pokemon-species.model';
+import { SpeciesClass } from '../../_models/pokemon-species.model';
 
 @Component({
   selector: 'app-pokemon-profile',

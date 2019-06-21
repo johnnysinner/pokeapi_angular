@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Pokemon } from '../_models/pokemon.model';
-import { PokemonService } from '../_services/pokemon.service';
+import { Pokemon } from '../../_models/pokemon.model';
+import { PokemonService } from '../../_services/pokemon.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';

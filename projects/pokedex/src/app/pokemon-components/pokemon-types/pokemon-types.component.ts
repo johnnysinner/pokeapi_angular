@@ -17,7 +17,6 @@ export class PokemonTypesComponent implements OnInit , OnDestroy {
     this.subs = this.pokemonService.getAllType().subscribe(
       (response: AllTypes) => {
         this.types = response;
-        console.log(this.types);
         }
     );
   }

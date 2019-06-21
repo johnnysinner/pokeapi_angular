@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Chain } from '../_models/pokemon-evolution.model';
-import { SpeciesClass } from '../_models/pokemon-species.model';
+import { Chain } from '../../_models/pokemon-evolution.model';
+import { SpeciesClass } from '../../_models/pokemon-species.model';
 import { switchMap } from 'rxjs/operators';
-import { PokemonService } from '../_services/pokemon.service';
+import { PokemonService } from '../../_services/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-evolution-chain',
