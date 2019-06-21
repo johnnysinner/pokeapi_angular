@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { TypeClass } from '../../../_models/pokemon-type.model';
 import { Subscription } from 'rxjs';
-import { PokemonService } from '../../../_services/pokemon.service';
+import { PokemonService } from '../../_services/pokemon.service';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { TypeClass } from '../../_models/pokemon-type.model';
 
 @Component({
   selector: 'app-pokemon-list-by-type',

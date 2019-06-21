@@ -13,12 +13,11 @@ import { PokemonProfileComponent } from './pokemon-components/pokemon-profile/po
 import { PokemonTopBarComponent } from './page-components/pokemon-top-bar/pokemon-top-bar.component';
 import { PokemonEvolutionChainComponent } from './pokemon-components/pokemon-evolution-chain/pokemon-evolution-chain.component';
 import { PokemonAbilitiesDetailsComponent } from './pokemon-components/pokemon-abilities-details/pokemon-abilities-details.component';
-import { PokemonListByTypeComponent } from './pokemon-components/pokemon-list/pokemon-list-by-type/pokemon-list-by-type.component';
 import { PokemonTypesComponent } from './pokemon-components/pokemon-types/pokemon-types.component';
 import { PokemonHomePageComponent } from './page-components/pokemon-home-page/pokemon-home-page.component';
 import { PokemonItemListComponent } from './pokemon-item-list/pokemon-item-list.component';
 import { PokemonItemComponent } from './pokemon-item/pokemon-item.component';
-
+import { PokemonListByTypeComponent } from './pokemon-components/pokemon-list-by-type/pokemon-list-by-type.component';
 
 @NgModule({
   declarations: [
