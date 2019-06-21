@@ -8,6 +8,7 @@ import { Chain } from '../_models/pokemon-evolution.model';
 import { AbilitiesClass } from '../_models/pokemon-abilities.model';
 import { TypeClass } from '../_models/pokemon-type.model';
 import { AllTypes } from '../_models/types.model';
+import { Items } from '../_models/pokemon-item.model';
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +51,17 @@ export class PokemonService {
 
   getAllType(): Observable<AllTypes> {
     return this.http.get<AllTypes>(`${this.baseUrl}/type/`);
+  }
+
+  getAllItems(offset: number, limit: number): Observable<any> {
+    return this.http.get<any>(`https://pokeapi.co/api/v2/item/?offset=${offset}&limit=${limit}`).pipe(
+      map((response) => {
+        return response.results;
+      })
+    );
+  }
+
+  getItemDetails(url: string): Observable<Items> {
+    return this.http.get<Items>(url);
   }
 }

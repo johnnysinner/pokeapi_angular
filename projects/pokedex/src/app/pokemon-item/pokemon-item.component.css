@@ -1,0 +1,26 @@
+.pokeItem {
+    vertical-align: middle;
+}
+.item-description {
+    background-color: white;
+    z-index: 99;
+    position: relative;
+    top: -60px;
+    font-size: 12px;
+    border: 1px solid black;
+    transition: .2s;
+}
+
+.item-description:hover {
+    opacity: .2 ;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.item-description label {
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}

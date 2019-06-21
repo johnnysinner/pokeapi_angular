@@ -9,15 +9,15 @@ import { Subscription } from 'rxjs';
 })
 export class PaginationComponent implements OnInit , OnDestroy {
   @Input() limitPerPage: number;
+  @Input() totalItem: number;
   totalPageCount: number;
   pages = new Array();
-  totalPokemon = 964;
   currentPage: number;
   subs: Subscription;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.totalPageCount = Math.ceil( this.totalPokemon / this.limitPerPage );
+    this.totalPageCount = Math.ceil( this.totalItem / this.limitPerPage );
     for (let i = 0; i < this.totalPageCount; i++) {
         this.pages.push(i + 1);
     }

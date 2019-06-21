@@ -16,6 +16,8 @@ import { PokemonAbilitiesDetailsComponent } from './pokemon-components/pokemon-a
 import { PokemonListByTypeComponent } from './pokemon-components/pokemon-list/pokemon-list-by-type/pokemon-list-by-type.component';
 import { PokemonTypesComponent } from './pokemon-components/pokemon-types/pokemon-types.component';
 import { PokemonHomePageComponent } from './page-components/pokemon-home-page/pokemon-home-page.component';
+import { PokemonItemListComponent } from './pokemon-item-list/pokemon-item-list.component';
+import { PokemonItemComponent } from './pokemon-item/pokemon-item.component';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { PokemonHomePageComponent } from './page-components/pokemon-home-page/po
     PokemonListByTypeComponent,
     PokemonTypesComponent,
     PokemonHomePageComponent,
+    PokemonItemListComponent,
+    PokemonItemComponent,
   ],
   imports: [
     BrowserModule,

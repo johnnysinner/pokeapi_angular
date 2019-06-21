@@ -1,0 +1,8 @@
+<div *ngIf="items" >
+  <div class="item-container" *ngFor="let item of items">
+    <app-pokemon-item [itemUrl]="item.url" *ngIf="item.url"></app-pokemon-item>
+  </div>
+</div>
+
+
+<app-pagination [limitPerPage]="limit" [totalItem]="totalItems"></app-pagination>
