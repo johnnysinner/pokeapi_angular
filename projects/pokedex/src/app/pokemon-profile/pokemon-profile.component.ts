@@ -13,6 +13,7 @@ import { SpeciesClass } from '../_models/pokemon-species.model';
   styleUrls: ['./pokemon-profile.component.css']
 })
 export class PokemonProfileComponent implements OnInit, OnDestroy {
+  @Input() pageFrom: string;
   name: any;
   subs: Subscription;
   pokemon = new Pokemon();
@@ -21,6 +22,7 @@ export class PokemonProfileComponent implements OnInit, OnDestroy {
   defaultImg = 'https://image.flaticon.com/icons/png/128/528/528101.png';
   isPokemonExist: boolean;
   check: boolean;
+  showDetailsBoolean: boolean;
   constructor(
     private pokemonService: PokemonService,
     private route: ActivatedRoute,
@@ -64,5 +66,9 @@ export class PokemonProfileComponent implements OnInit, OnDestroy {
 
   getImg() {
     return (this.pokemon.sprites.front_default !== null ) ? this.pokemon.sprites.front_default : this.defaultImg;
+  }
+
+  showDetails() {
+    this.showDetailsBoolean = !this.showDetailsBoolean;
   }
 }

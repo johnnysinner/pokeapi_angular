@@ -16,19 +16,23 @@
     </div>
   </div>
 
-  <div class="pokemon-abilities" *ngIf="pokemon.abilities">
-      <div> Abilities: </div>
+  <div class="pokemon-abilities" *ngIf="pokemon.abilities">    
+      <button (click)="showDetails()"> Show/Hide Abilities Detail </button>
+      <div> Abilities: </div>       
       <div *ngFor="let abilities of pokemon.abilities">
-        <label *ngIf="abilities.is_hidden">
-              {{ abilities.ability.name | formatName }} (H)
-        </label>
-        <label *ngIf="!abilities.is_hidden">
-              {{ abilities.ability.name | formatName }}
-        </label>
+        <div *ngIf="abilities.is_hidden">
+              {{ abilities.ability.name | formatName }} (HIDDEN)       
+              <app-pokemon-abilities-details [abilityUrl]="abilities.ability.url" *ngIf="showDetailsBoolean"></app-pokemon-abilities-details>
+        </div>
+        <div *ngIf="!abilities.is_hidden">
+              {{ abilities.ability.name | formatName }}              
+              <app-pokemon-abilities-details [abilityUrl]="abilities.ability.url" *ngIf="showDetailsBoolean"></app-pokemon-abilities-details>
+        
+        </div>
       </div>
   </div>
 
-  <div *ngIf="pokemon.stats">
+  <div *ngIf="pokemon.stats" class="pokemon-stats">
     Stats: 
       <div *ngFor="let stats of pokemon.stats">
           <label> 
@@ -36,6 +40,7 @@
           </label>
       </div>
     </div>
+
   <div class="pokemon-details">
     Pokemon Details
     <div>
@@ -46,7 +51,6 @@
       <label> Height : </label>
       <label> {{ pokemon.height * 10 | number : '1.2-2' }} cm </label>
     </div>
-  </div>
   <div *ngIf="pokemonSpecies.color">
       <label> Color : </label>
       <label> {{ pokemonSpecies.color.name | formatName }} </label>
@@ -64,10 +68,16 @@
       <label *ngFor="let egg_groups of pokemonSpecies.egg_groups"> 
         {{ egg_groups.name | formatName }} </label>
   </div>
-  <div *ngIf="pokemonSpecies.evolution_chain">
-      <app-pokemon-evolution-chain [speciesUrl]="pokemonSpecies.evolution_chain.url"></app-pokemon-evolution-chain>
   </div>
+
+  <div *ngIf="pokemonSpecies.evolution_chain">
+  EVOLUTION CHART: <br><br><br>
+  <app-pokemon-evolution-chain [speciesUrl]="pokemonSpecies.evolution_chain.url"></app-pokemon-evolution-chain>
+  </div>
+
 </div>
+
+
 <div class="container-pokemon-details" *ngIf="isPokemonExist">
   <img src="assets\pokeball.gif" *ngIf="!check" class="loading-ball">
 </div>

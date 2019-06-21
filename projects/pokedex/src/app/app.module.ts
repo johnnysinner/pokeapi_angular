@@ -12,6 +12,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PokemonProfileComponent } from './pokemon-profile/pokemon-profile.component';
 import { PokemonTopBarComponent } from './pokemon-top-bar/pokemon-top-bar.component';
 import { PokemonEvolutionChainComponent } from './pokemon-evolution-chain/pokemon-evolution-chain.component';
+import { PokemonAbilitiesDetailsComponent } from './pokemon-abilities-details/pokemon-abilities-details.component';
+import { PokemonListByTypeComponent } from './pokemon-list/pokemon-list-by-type/pokemon-list-by-type.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { PokemonEvolutionChainComponent } from './pokemon-evolution-chain/pokemo
     PokemonProfileComponent,
     PokemonTopBarComponent,
     PokemonEvolutionChainComponent,
+    PokemonAbilitiesDetailsComponent,
+    PokemonListByTypeComponent,
   ],
   imports: [
     BrowserModule,

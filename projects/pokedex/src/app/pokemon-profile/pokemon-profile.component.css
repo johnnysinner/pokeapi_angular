@@ -4,3 +4,6 @@
 .not-exist {
     font-size: 30px;
 }
+.pokemon-stats, .pokemon-abilities , .pokemon-details {
+    margin: 30px;
+}
