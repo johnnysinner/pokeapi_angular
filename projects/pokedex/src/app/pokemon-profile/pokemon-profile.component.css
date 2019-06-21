@@ -1,3 +1,6 @@
 .container-pokemon-details {
     text-align: center;
 }
+.not-exist {
+    font-size: 30px;
+}

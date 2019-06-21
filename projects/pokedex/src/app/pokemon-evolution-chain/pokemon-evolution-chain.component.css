@@ -1,0 +1,13 @@
+.pokemon-evolve, .second {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 30px;
+}
+.arrow-image {
+    display: inline-block;
+    width: 30px;
+}
+
+.evolve {
+    cursor: pointer;
+}

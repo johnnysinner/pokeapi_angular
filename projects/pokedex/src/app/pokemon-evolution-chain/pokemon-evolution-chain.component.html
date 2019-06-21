@@ -1,0 +1,35 @@
+<div class="pokemon-evolution-container" *ngIf="chain.evolves_to != 0">
+    <div class="pokemon-evolve" *ngIf="!check">
+      <img src="assets\pokeball.gif" class="loading-ball">
+    </div>
+
+    <div class="pokemon-evolve evolve" *ngIf="chain.species" [routerLink]="['../', chain.species.name]">
+        {{ chain.species.name | formatName }}
+        <app-pokemon-sprite-and-type [pokemonName]="chain.species.name"></app-pokemon-sprite-and-type>
+    </div>
+    <div class="pokemon-evolve" *ngIf="chain.evolves_to">
+       <div *ngFor="let level1 of chain.evolves_to">
+          <img [attr.src]="imgUrl" class="arrow-image">
+          <div  class="second evolve" [routerLink]="['../', level1.species.name]">
+            {{ level1.species.name | formatName }}
+            <app-pokemon-sprite-and-type [pokemonName]="level1.species.name"></app-pokemon-sprite-and-type>
+          </div>  
+          <div *ngIf="checkIfThereIsThirdEvolution(level1.evolves_to) && chain.evolves_to" class="second">
+                <div *ngFor="let level2 of level1.evolves_to" >                  
+                  <img [attr.src]="imgUrl" class="arrow-image">
+                  <div class="second evolve" [routerLink]="['../', level2.species.name]">
+                  {{ level2.species.name | formatName }}
+                  <app-pokemon-sprite-and-type [pokemonName]="level2.species.name"></app-pokemon-sprite-and-type>  
+                  </div>
+                  <div *ngIf="checkIfThereIsThirdEvolution(level2.evolves_to) && chain.evolves_to" class="second">
+                      <img [attr.src]="imgUrl" class="arrow-image">
+                      <div *ngFor="let level3 of level2.evolves_to" class="second evolve" [routerLink]="['../', level3.species.name]">
+                        {{ level3.species.name | formatName }}
+                        <app-pokemon-sprite-and-type [pokemonName]="level3.species.name"></app-pokemon-sprite-and-type> 
+                      </div>
+                  </div>
+                </div>
+          </div>
+        </div> 
+    </div>
+</div>

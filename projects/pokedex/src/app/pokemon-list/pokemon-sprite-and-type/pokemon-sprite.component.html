@@ -1,5 +1,9 @@
+<div class="pokemon-evolve" *ngIf="!check">
+    <img class="loading-ball" src="assets/pokeball.gif">
+  </div>
+  
 <div *ngIf="pokemon.sprites">
-  <img [attr.src]="getImgUrl()" class="pokemon-sprite">
+    <img [attr.src]="getImgUrl()" class="pokemon-sprite">
 </div>
 
 <div *ngIf="pokemon.types">

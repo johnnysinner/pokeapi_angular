@@ -13,13 +13,16 @@ export class PokemonSpriteComponent implements OnInit, OnDestroy {
   pokemon = new Pokemon();
   subs: Subscription;
   pokemonSprite: string;
+  check: boolean;
   defaultUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png';
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
+    this.check = false;
     this.subs = this.pokemonService.getPokemonDetailsByName(this.pokemonName).subscribe(
       (response: Pokemon) => {
         this.pokemon = response;
+        this.check = true;
         }
     );
   }

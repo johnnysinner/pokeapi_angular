@@ -1,3 +1,4 @@
+
 <div class="container-pokemon-details" *ngIf="isPokemonExist">
   <div class="pokemon-name">
     <label>{{ pokemon.name | formatName }}</label>
@@ -46,8 +47,31 @@
       <label> {{ pokemon.height * 10 | number : '1.2-2' }} cm </label>
     </div>
   </div>
+  <div *ngIf="pokemonSpecies.color">
+      <label> Color : </label>
+      <label> {{ pokemonSpecies.color.name | formatName }} </label>
+  </div>
+  <div *ngIf="pokemonSpecies.habitat">
+      <label> Habitat : </label>
+      <label> {{ pokemonSpecies.habitat.name | formatName }} </label>
+  </div>
+  <div *ngIf="pokemonSpecies.shape">
+      <label> Shape : </label>
+      <label> {{ pokemonSpecies.shape.name | formatName }} </label>
+  </div>
+  <div *ngIf="pokemonSpecies.egg_groups">
+      <label> Egg Groups : </label>
+      <label *ngFor="let egg_groups of pokemonSpecies.egg_groups"> 
+        {{ egg_groups.name | formatName }} </label>
+  </div>
+  <div *ngIf="pokemonSpecies.evolution_chain">
+      <app-pokemon-evolution-chain [speciesUrl]="pokemonSpecies.evolution_chain.url"></app-pokemon-evolution-chain>
+  </div>
+</div>
+<div class="container-pokemon-details" *ngIf="isPokemonExist">
+  <img src="assets\pokeball.gif" *ngIf="!check" class="loading-ball">
+</div>
+<div class="container-pokemon-details not-exist" *ngIf="!isPokemonExist">
+  This pokemon doesn't exist.
 </div>
 
-<div class="container-pokemon-details" *ngIf="!isPokemonExist">
-  This pokemon {{ pokemonName }} doesn't exist.
-</div>
