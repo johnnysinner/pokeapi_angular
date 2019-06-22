@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokemon-top-bar.component.css']
 })
 export class PokemonTopBarComponent implements OnInit {
-
+  isSearchShown: boolean;
   constructor() { }
 
   ngOnInit() {
+    this.isSearchShown = true;
+  }
+
+  showHideSearch() {
+    this.isSearchShown = !this.isSearchShown;
   }
 
 }

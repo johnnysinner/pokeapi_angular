@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Pokemon } from '../_models/pokemon.model';
 import { SpeciesClass } from '../_models/pokemon-species.model';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { Chain } from '../_models/pokemon-evolution.model';
 import { AbilitiesClass } from '../_models/pokemon-abilities.model';
 import { TypeClass } from '../_models/pokemon-type.model';
@@ -29,12 +29,23 @@ export class PokemonService {
     return this.http.get<SpeciesClass>(url);
   }
 
-  getEvolutionChain(url: string): Observable<Chain> {
-    return this.http.get<any>(url).pipe(
-      map((response) => {
-        return response.chain;
+  getEvolutionChain(name: string): Observable<Chain> {
+    return this.http.get<any>(`${this.baseUrl}/pokemon/${name}`).pipe(
+      switchMap(
+        (response) => {
+        return this.http.get<SpeciesClass>(response.species.url).pipe(
+          switchMap(
+            (response1: SpeciesClass) => {
+              return this.http.get<any>(response1.evolution_chain.url).pipe(
+                map((response2: any) => {
+                  return response2.chain;
+                })
+              )
+            }
+          )
+        );
       })
-    );
+    )
   }
 
   getAbilityDetails(url: string): Observable<AbilitiesClass> {

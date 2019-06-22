@@ -19,6 +19,11 @@ import { PokemonItemListComponent } from './pokemon-item-list/pokemon-item-list.
 import { PokemonItemComponent } from './pokemon-item/pokemon-item.component';
 import { PokemonListByTypeComponent } from './pokemon-components/pokemon-list-by-type/pokemon-list-by-type.component';
 
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { SearchComponent } from './search/search.component';
+
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,11 +41,16 @@ import { PokemonListByTypeComponent } from './pokemon-components/pokemon-list-by
     PokemonHomePageComponent,
     PokemonItemListComponent,
     PokemonItemComponent,
+    SearchComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    AutocompleteLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]

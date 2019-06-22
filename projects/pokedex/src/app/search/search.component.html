@@ -1,0 +1,34 @@
+
+<div class="forms">  
+      <form autocomplete="off" novalidate [formGroup]="reactiveForm" (ngSubmit)="submitReactiveForm($event)">
+        <div class="container-input">
+          <div class="ng-autocomplete">
+            <ng-autocomplete #ngAutoCompleteStatic
+                             [data]="pokemonList"
+                             formControlName="name"
+                             [initialValue]=""
+                             [placeHolder]="placeholder"
+                             [searchKeyword]="keyword"
+                             historyIdentifier="countriesReactiveList"
+                             [historyHeading]="historyHeading"
+                             historyListMaxNumber="3"
+                             notFoundText="Not found"
+                             [itemTemplate]="itemTemplateStatic"
+                             [notFoundTemplate]="notFoundTemplate">
+            </ng-autocomplete>
+  
+            <ng-template #itemTemplateStatic let-item>
+              <a [innerHTML]="item"></a>
+            </ng-template>
+  
+            <ng-template #notFoundTemplate let-notFound>
+              <div [innerHTML]="notFound"></div>
+            </ng-template>
+
+          </div>
+          
+        </div>
+        
+        <button class="btn" type="submit" [disabled]="reactiveForm.invalid"  [routerLink]="['/pokemon', revertName(reactiveForm.value.name)]">Search</button>
+      </form>
+  </div>
