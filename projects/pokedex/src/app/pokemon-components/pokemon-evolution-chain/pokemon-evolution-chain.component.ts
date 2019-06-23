@@ -28,7 +28,6 @@ export class PokemonEvolutionChainComponent implements OnInit, OnDestroy {
       })
     ).subscribe(
       (pokemonEvolution: Chain) => {
-        console.log(pokemonEvolution);
         this.chain = pokemonEvolution;
         this.check = true;
       });
@@ -43,6 +42,14 @@ export class PokemonEvolutionChainComponent implements OnInit, OnDestroy {
       return true;
     } else {
       return false;
+    }
+  }
+
+  checkIfItIswormadam(wormadam: string) {
+    if (wormadam === 'wormadam') {
+      return 'wormadam-plant';
+    } else {
+      return wormadam;
     }
   }
 }

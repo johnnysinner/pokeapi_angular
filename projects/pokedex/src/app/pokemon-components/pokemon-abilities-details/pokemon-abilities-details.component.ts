@@ -12,11 +12,14 @@ export class PokemonAbilitiesDetailsComponent implements OnInit, OnDestroy {
   @Input() abilityUrl: string;
   ability: AbilitiesClass;
   subs: Subscription;
+  check: boolean;
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
+    this.check = false;
     this.subs = this.pokemonService.getAbilityDetails(this.abilityUrl).subscribe((response) => {
       this.ability = response;
+      this.check = true;
     });
   }
 

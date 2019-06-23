@@ -1,4 +1,8 @@
 <div *ngFor="let detail of ability">
+    <div class="pokemon-evolve" *ngIf="!check">
+        <img src="assets\pokeball.gif" class="loading-ball">
+      </div>
     {{ detail.effect }}
+    
   </div>
     

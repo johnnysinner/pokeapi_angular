@@ -25,6 +25,10 @@ export class PokemonService {
     return this.http.get<Pokemon>(`${this.baseUrl}/pokemon/${pokemonName}`);
   }
 
+  getPokemonDetailsByUrl(url: string): Observable<Pokemon> {
+    return this.http.get<Pokemon>(url);
+  }
+
   getPokemonSpeciesByUrl(url: string): Observable<SpeciesClass> {
     return this.http.get<SpeciesClass>(url);
   }
@@ -45,7 +49,7 @@ export class PokemonService {
           )
         );
       })
-    )
+    );
   }
 
   getAbilityDetails(url: string): Observable<AbilitiesClass> {

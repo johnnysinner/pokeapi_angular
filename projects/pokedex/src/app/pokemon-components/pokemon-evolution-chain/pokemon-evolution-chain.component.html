@@ -10,9 +10,9 @@
     <div class="pokemon-evolve" *ngIf="chain.evolves_to">
        <div *ngFor="let level1 of chain.evolves_to">
           <img [attr.src]="imgUrl" class="arrow-image">
-          <div  class="second evolve" [routerLink]="['../', level1.species.name]">
-            {{ level1.species.name | formatName }}
-            <app-pokemon-sprite-and-type [pokemonName]="level1.species.name"></app-pokemon-sprite-and-type>
+          <div  class="second evolve" [routerLink]="['../', checkIfItIswormadam(level1.species.name)]">
+            {{ checkIfItIswormadam(level1.species.name) | formatName }}
+            <app-pokemon-sprite-and-type [pokemonName]="checkIfItIswormadam(level1.species.name)"></app-pokemon-sprite-and-type>
           </div>  
           <div *ngIf="checkIfThereIsThirdEvolution(level1.evolves_to) && chain.evolves_to" class="second">
                 <div *ngFor="let level2 of level1.evolves_to" >                  
