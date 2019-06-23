@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SearchService } from '../_services/search.service';
-import { Pokemon } from '../_models/pokemon.model';
+import { SearchService } from '../../_services/search.service';
+import { Pokemon } from '../../_models/pokemon.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -19,12 +19,12 @@ export class SearchComponent implements OnInit, OnDestroy {
    */
   reactiveForm: FormGroup;
 
-  public placeholder: string = 'Enter Pokemon Name';
+  public placeholder = 'Enter Pokemon Name';
   public keyword = 'name';
-  public historyHeading: string = 'Recently selected';
+  public historyHeading = 'Recently selected';
 
-  constructor(private _fb: FormBuilder, private searchService: SearchService) {
-    this.reactiveForm = _fb.group({
+  constructor(private formBuilder: FormBuilder, private searchService: SearchService) {
+    this.reactiveForm = formBuilder.group({
       name: ['', Validators.required]
     });
   }
@@ -41,27 +41,20 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-   /**
- * Submit template form
- */
-submitTemplateForm(value) {
-  console.log(value);
+submitTemplateForm() {
+  window.location.reload();
 }
 
-/**
- * Submit reactive form
- */
 submitReactiveForm() {
   if (this.reactiveForm.valid) {
   }
 }
-  convertName(value: string) {
-    return value.split('-').map(word => `${word.charAt(0).toUpperCase()}${word.slice(1)}`).join(' ');
-  }
+convertName(value: string) {
+  return value.split('-').map(word => `${word.charAt(0).toUpperCase()}${word.slice(1)}`).join(' ');
+}
 
-  revertName(value: string) {
-    return value.split(' ').map(word => `${word.charAt(0).toLowerCase()}${word.slice(1)}`).join('-');
-  }
-
+revertName(value: string) {
+  return value.split(' ').map(word => `${word.charAt(0).toLowerCase()}${word.slice(1)}`).join('-');
+}
 
 }

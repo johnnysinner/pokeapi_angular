@@ -7,6 +7,7 @@
         {{ chain.species.name | formatName }}
         <app-pokemon-sprite-and-type [pokemonName]="chain.species.name"></app-pokemon-sprite-and-type>
     </div>
+    
     <div class="pokemon-evolve" *ngIf="chain.evolves_to">
        <div *ngFor="let level1 of chain.evolves_to">
           <img [attr.src]="imgUrl" class="arrow-image">
@@ -27,9 +28,9 @@
                         {{ level3.species.name | formatName }}
                         <app-pokemon-sprite-and-type [pokemonName]="level3.species.name"></app-pokemon-sprite-and-type> 
                       </div>
-                  </div>
+                    </div>
                 </div>
-          </div>
+            </div>
         </div> 
     </div>
 </div>

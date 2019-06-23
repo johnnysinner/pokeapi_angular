@@ -75,13 +75,10 @@
   <app-pokemon-evolution-chain [speciesUrl]="pokemonSpecies.evolution_chain.url"></app-pokemon-evolution-chain>
   </div>
 
-</div>
-
-
-<div class="container-pokemon-details" *ngIf="isPokemonExist">
   <img src="assets\pokeball.gif" *ngIf="!check" class="loading-ball">
 </div>
-<div class="container-pokemon-details not-exist" *ngIf="!isPokemonExist">
+
+<div class="container-pokemon-details not-exist" *ngIf="!isPokemonExist && check">
   This pokemon doesn't exist.
 </div>
 

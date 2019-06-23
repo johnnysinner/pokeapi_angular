@@ -20,7 +20,7 @@ import { PokemonItemComponent } from './pokemon-item/pokemon-item.component';
 import { PokemonListByTypeComponent } from './pokemon-components/pokemon-list-by-type/pokemon-list-by-type.component';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { SearchComponent } from './search/search.component';
+import { SearchComponent } from './page-components/search/search.component';
 
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 
