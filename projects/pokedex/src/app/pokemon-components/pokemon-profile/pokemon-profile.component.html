@@ -74,15 +74,15 @@
   </div>
 
   <div class="pokemon-abilities" *ngIf="pokemon.abilities">    
-      <button (click)="showDetails()"> Show/Hide Abilities Detail </button>
-      <div> Abilities: </div>       
+      <button (click)="showDetails()" class="show-hide-ability-details"> Show/Hide Abilities Detail </button>
+      <div><b> Abilities: </b></div>       
       <div *ngFor="let abilities of pokemon.abilities">
         <div *ngIf="abilities.is_hidden">
-              {{ abilities.ability.name | formatName }} (HIDDEN)       
+              <b>{{ abilities.ability.name | formatName }} (HIDDEN)</b> 
               <app-pokemon-abilities-details [abilityUrl]="abilities.ability.url" *ngIf="showDetailsBoolean"></app-pokemon-abilities-details>
         </div>
         <div *ngIf="!abilities.is_hidden">
-              {{ abilities.ability.name | formatName }}              
+              <b>{{ abilities.ability.name | formatName }}</b>    
               <app-pokemon-abilities-details [abilityUrl]="abilities.ability.url" *ngIf="showDetailsBoolean"></app-pokemon-abilities-details>
         
         </div>
@@ -92,10 +92,11 @@
   <app-pokemon-evolution-chain [speciesUrl]="pokemonSpecies.evolution_chain.url"></app-pokemon-evolution-chain>
   </div>
 
-  <img src="assets\pokeball.gif" *ngIf="!check" class="loading-ball">
+  <img src="assets/pokeball.gif" *ngIf="!check" class="loading-ball">
 </div>
 
 <div class="container-pokemon-details not-exist" *ngIf="!isPokemonExist">
   This pokemon doesn't exist.
+  <div class="goBack" (click)="goBack()"> GO BACK</div>
 </div>
 

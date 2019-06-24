@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PokemonService } from '../_services/pokemon.service';
 import { Items } from '../_models/pokemon-item.model';
+import { PokemonService } from '../_services/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-item',

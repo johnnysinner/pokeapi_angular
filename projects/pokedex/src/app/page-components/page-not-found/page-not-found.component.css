@@ -1,0 +1,34 @@
+.page-not-found {
+    text-align: center;
+}
+
+.header-notfound {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 80px;
+    color: red;
+}
+
+.four-oh-four {
+    font-size: 250px;
+}
+.notfoundimage {
+    width: 150px;
+}
+
+.footer-notfound {
+    font-size: 20px;
+}
+
+.go-home-button {
+    margin-top: 100px;
+    padding: 20px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.go-home-button:hover {
+    position: relative;
+    top: -10px;
+}

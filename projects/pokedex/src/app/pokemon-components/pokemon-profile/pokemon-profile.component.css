@@ -51,3 +51,23 @@ html {font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "
   background-color: #F1F1F1;
   color: black;
 }
+
+.show-hide-ability-details {
+    background-color: #ffa09f;
+    border-color: #ffa09f;
+    padding: 5px;
+    transition: all 1s;
+}
+
+.show-hide-ability-details:hover {
+    background-color: white;
+    border-color: black;
+}
+
+.goBack {
+  cursor: pointer;
+}
+
+.goBack:hover {
+  border: 1px black solid;
+}

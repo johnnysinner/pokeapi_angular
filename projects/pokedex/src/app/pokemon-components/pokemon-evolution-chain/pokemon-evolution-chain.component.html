@@ -6,7 +6,7 @@
       <img src="assets\pokeball.gif" class="loading-ball">
     </div>
 
-    <div class="pokemon-evolve evolve" *ngIf="chain.species" [routerLink]="['../', chain.species.name]">
+    <div class="pokemon-evolve evolve second" *ngIf="chain.species" [routerLink]="['../', chain.species.name]">
         {{ chain.species.name | formatName }}
         <app-pokemon-sprite-and-type [pokemonName]="chain.species.name"></app-pokemon-sprite-and-type>
     </div>
