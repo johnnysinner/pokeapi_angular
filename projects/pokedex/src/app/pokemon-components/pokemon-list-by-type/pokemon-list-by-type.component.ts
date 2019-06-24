@@ -1,10 +1,10 @@
-import { Component, OnInit, OnDestroy, PLATFORM_ID, APP_ID, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, PLATFORM_ID, APP_ID, Inject, OnChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PokemonService } from '../../_services/pokemon.service';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { TypeClass } from '../../_models/pokemon-type.model';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, Location } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-list-by-type',
@@ -19,6 +19,7 @@ export class PokemonListByTypeComponent implements OnInit, OnDestroy {
   constructor(
     private pokeService: PokemonService,
     private route: ActivatedRoute,
+    private location: Location,
     @Inject(PLATFORM_ID) private platformId,
     @Inject(APP_ID) private appId: string) { }
 
@@ -30,7 +31,7 @@ export class PokemonListByTypeComponent implements OnInit, OnDestroy {
       })
     ).subscribe((response: TypeClass) => {
       this.pokemonType = response;
-    });
+    }, error => this.location.back());
   }
 
   ngOnDestroy() {
