@@ -106,7 +106,7 @@
         stats: Stat[];
         types: Type[];
         weight: number;
-        result: Results[];
+        results: Results[];
     }
 
     export interface Results {
