@@ -59,7 +59,4 @@ export class PokemonEvolutionChainComponent implements OnInit, OnDestroy, OnChan
     }
   }
 
-  getFirstEvolve() {
-    return this.chain.species.name;
-  }
 }

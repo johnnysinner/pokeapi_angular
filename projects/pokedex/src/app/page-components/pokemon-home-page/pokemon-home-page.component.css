@@ -1,0 +1,75 @@
+.image-home {
+    width: 60%;
+    padding: 10px;       
+}
+.home-page-container {
+    text-align: center;
+    padding: 5%;
+}
+
+h1, p {
+    font-family: 'Courier New', Courier, monospace;
+    transition: all 0.6s;
+    margin: 20px;
+}
+
+h1:hover {
+    font-size: 50px;
+}
+/* Button 2 */
+.button2 {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #ef5350; 
+    border: 2px solid #ef5350;
+    color: #fff;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 1rem;
+    width: 180px;
+    border-radius: 5px;
+    transition: all 0.6s;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+  }
+  
+  .button2 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.6s;
+  }
+  
+  .button2 span:after {
+    content: '→';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -70px;
+    transition: 0.2s;
+  }
+  
+  .button2:hover{
+    background-color: #ffd7d6;
+    width: 200px;
+    font-size: 1.15rem;
+    color: black;
+  }
+
+  .button2:after {      
+    background-color: #ffa09f;
+  }
+  
+  .button2:hover span {
+    padding-right: 35px;
+  }
+  
+  .button2:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .poke-api {
+      width: 100px;
+      margin-top: 100px;
+  }

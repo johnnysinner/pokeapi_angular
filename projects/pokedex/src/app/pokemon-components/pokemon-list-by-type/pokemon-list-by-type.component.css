@@ -87,3 +87,19 @@
 .dragon{
     background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
 }
+
+.back-to-top-btn {
+    width: 50px;
+    transition: all 2s;
+}
+
+.back-to-top-btn:hover {
+    width: 75px;
+    cursor: pointer;
+}
+
+.current-type {
+    font-size: 25px;
+    color:white;
+    font-family: 'Courier New', Courier, monospace;
+}

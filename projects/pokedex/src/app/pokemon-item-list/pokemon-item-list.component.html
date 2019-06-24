@@ -1,4 +1,4 @@
-<div *ngIf="items" >
+<div *ngIf="items" class="pokemon-all-item-container">
   <div class="item-container" *ngFor="let item of items">
     <app-pokemon-item [itemUrl]="item.url" *ngIf="item.url"></app-pokemon-item>
   </div>

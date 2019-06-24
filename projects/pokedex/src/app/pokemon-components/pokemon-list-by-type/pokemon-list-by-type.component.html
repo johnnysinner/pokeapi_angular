@@ -1,7 +1,13 @@
 <app-pokemon-types></app-pokemon-types>
+<div [ngClass]="['pokemon-container current-type', pokemonTypeParams]">
+ALL POKEMON WITH {{ pokemonTypeParams | uppercase }} TYPE
+</div>
 <div class="pokemon-container" *ngIf="pokemonType.pokemon">
   <div *ngFor="let pokemon of pokemonType.pokemon" class="pokemon-name" [routerLink]="['/pokemon', pokemon.pokemon.name ]">
         <div class="pokemon-detail">{{ pokemon.pokemon.name | formatName }}</div>
         <app-pokemon-sprite-and-type [pokemonName]="pokemon.pokemon.name" *ngIf="pokemon.pokemon.name"></app-pokemon-sprite-and-type>
   </div>
+  <div>
+  <img class="back-to-top-btn" src="/assets/backtotop.png" alt="Back to top button" (click)="scrollToTop()">
+</div>
 </div>

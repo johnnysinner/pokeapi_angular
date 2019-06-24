@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, OnChanges } from '@angular/core';
 import { Pokemon } from '../../_models/pokemon.model';
 import { Subscription } from 'rxjs';
 import { PokemonService } from '../../_services/pokemon.service';
@@ -12,7 +12,7 @@ import { SpeciesClass } from '../../_models/pokemon-species.model';
   templateUrl: './pokemon-profile.component.html',
   styleUrls: ['./pokemon-profile.component.css']
 })
-export class PokemonProfileComponent implements OnInit, OnDestroy {
+export class PokemonProfileComponent implements OnInit, OnDestroy, OnChanges {
   @Input() pageFrom: string;
   name: any;
   subs: Subscription;
@@ -28,6 +28,10 @@ export class PokemonProfileComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private location: Location,
     ) { }
+
+  ngOnChanges() {
+    console.log('asd');
+  }
 
   ngOnInit() {
     this.check = false;
@@ -70,5 +74,32 @@ export class PokemonProfileComponent implements OnInit, OnDestroy {
 
   showDetails() {
     this.showDetailsBoolean = !this.showDetailsBoolean;
+  }
+
+  getGenderRate(genderRate: number) {
+    switch (genderRate) {
+      case 1:
+        return '100% Male';
+      case 2:
+        return '87.5% Male | 12.5% Female';
+      case 3:
+        return '75.0% Male | 25.0% Female';
+      case 4:
+        return '50.0% Male | 50.0% Female';
+      case 5:
+        return '25.0% Male | 75.0% Female';
+      case 6:
+        return '12.5% Male | 87.5% Female';
+      case 7:
+        return '100% Female';
+      case 8:
+        return 'Genderless';
+      case 9:
+        return 'Trivia';
+    }
+  }
+
+  computeForPercentage(stats: number) {
+    return (stats * 100 / 255) + '%';
   }
 }

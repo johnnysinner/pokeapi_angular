@@ -1,9 +1,53 @@
 .container-pokemon-details {
     text-align: center;
+    padding: 40px 0 0 0;
 }
 .not-exist {
     font-size: 30px;
 }
 .pokemon-stats, .pokemon-abilities , .pokemon-details {
     margin: 30px;
+}
+.display-inline-block {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+html {font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+}
+
+.progress-status {
+  text-align: center;
+  font-weight: bold;
+}
+
+.progress {
+  display: flex;
+  height: 0.5rem;
+  overflow: hidden;
+  font-size: 0.75rem;
+  background-color: rgb(2, 2, 2);
+  border-radius: .25rem;
+}
+
+.progress-bar {
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  background-color: #ef5350;
+  transition: width .6s ease;
+  padding: 0;
+  height: 2rem;
+}
+
+.not-started {
+  background-color: #F1F1F1;
+  color: black;
 }

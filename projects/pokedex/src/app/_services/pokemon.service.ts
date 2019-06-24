@@ -44,7 +44,7 @@ export class PokemonService {
                 map((response2: any) => {
                   return response2.chain;
                 })
-              )
+              );
             }
           )
         );

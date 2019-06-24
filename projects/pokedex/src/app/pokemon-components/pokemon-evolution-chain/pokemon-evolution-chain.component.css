@@ -11,3 +11,6 @@
 .evolve {
     cursor: pointer;
 }
+.pokemon-evolution-container{
+    text-align: center;
+}

@@ -1,4 +1,14 @@
-<div class="container">
-    <button routerLink="/pokemon-list">LIST BY ID</button> <br>
-    <button routerLink="/pokemon-type">LIST BY TYPE</button>
+<div class="home-page-container">
+<h1>Pokedex</h1>
+<p>The Pokédex (ポケモン図鑑 Pokemon Zukan) is an electronic device designed to catalogue and provide information regarding the various species of Pokémon featured in the Pokémon video game, anime and manga series. The name Pokédex is a neologism including "Pokémon" (which itself is a portmanteau of "pocket" and "monster") and "index". The Japanese name is simply "Pokémon Encyclopedia", and it can feature every Pokémon on it, depending on the Pokédex. </p>
+
+<h3> Get Started : </h3>
+<button class="button2" [routerLink]="['/pokemon-list']"><span> Pokemons </span></button>
+<button class="button2" [routerLink]="['/pokemon-type']"><span> Pokemon By Types </span></button>
+<button class="button2" [routerLink]="['/items']"><span> Items </span></button>
+
+<img src="/assets/pokeapi.png" alt="PokeAPI" title="PokeAPI" class="poke-api">
+<div>
+<a target="_blank" href="https://pokeapi.co">PokeAPI - API used to create this project</a>
+</div>
 </div>

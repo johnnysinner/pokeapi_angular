@@ -1,4 +1,16 @@
-.pokeItem {
+
+.show-hide-item-details {
+    background-color: #ffa09f;
+    border-color: #ffa09f;
+    padding: 5px;
+    transition: all 1s;
+}
+
+.show-hide-item-details:hover {
+    background-color: white;
+    border-color: black;
+}
+.pokeItem-container {
     vertical-align: middle;
 }
 .item-description {
@@ -6,15 +18,14 @@
     z-index: 99;
     position: relative;
     top: -60px;
-    font-size: 12px;
+    font-size: 15px;
     border: 1px solid black;
     transition: .2s;
 }
 
 .item-description:hover {
-    opacity: .2 ;
     cursor: pointer;
-    transition: 0.1s;
+    transition: all 0.1s;
 }
 
 .item-description label {

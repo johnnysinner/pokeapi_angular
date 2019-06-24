@@ -1,14 +1,18 @@
+.pokemon-list-header {
+    margin: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
 .pokemon-name {
     display: inline-block;
-    text-align: center;
     cursor: pointer;    
     border: 5px solid white;
     width: 200px;
-    height: 200px;
-    margin: 5px;
-    transition: 0.3s;
+    height: 220px;
+    margin: auto auto;
+    transition: all 1s;
     padding: 10px;
     overflow: hidden;
+    vertical-align: center;
 }
 .pokemon-container {
     text-align: center;

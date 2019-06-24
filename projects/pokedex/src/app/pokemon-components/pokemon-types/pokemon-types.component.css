@@ -1,0 +1,19 @@
+.all-type-container {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.all-type {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    transition: all .5s;
+    position:relative;
+    top:0px;
+}
+
+.all-type:hover {    
+    position:relative;
+    top:-5px;    
+    cursor: pointer;
+}

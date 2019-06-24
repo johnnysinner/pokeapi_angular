@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PokemonService } from '../../_services/pokemon.service';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { TypeClass } from '../../_models/pokemon-type.model';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-list-by-type',
@@ -14,13 +15,17 @@ import { TypeClass } from '../../_models/pokemon-type.model';
 export class PokemonListByTypeComponent implements OnInit, OnDestroy {
   pokemonType = new TypeClass();
   subs: Subscription;
+  pokemonTypeParams: string;
   constructor(
     private pokeService: PokemonService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    @Inject(PLATFORM_ID) private platformId,
+    @Inject(APP_ID) private appId: string) { }
 
   ngOnInit() {
     this.subs = this.route.params.pipe(
       switchMap((params) => {
+        this.pokemonTypeParams = params.type;
         return this.pokeService.getPokemonByType(params.type);
       })
     ).subscribe((response: TypeClass) => {
@@ -31,4 +36,17 @@ export class PokemonListByTypeComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subs.unsubscribe();
   }
+
+  scrollToTop() {
+    if (isPlatformBrowser(this.platformId)) {
+    const scrollToTop = window.setInterval(() => {
+      const pos = window.pageYOffset;
+      if (pos > 0) {
+        window.scrollTo(0, pos - 80); // how far to scroll on each step
+      } else {
+        window.clearInterval(scrollToTop);
+      }
+    }, 16);
+  }
+}
 }

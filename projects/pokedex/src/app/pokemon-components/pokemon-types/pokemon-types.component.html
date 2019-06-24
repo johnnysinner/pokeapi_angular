@@ -1,5 +1,9 @@
-<div class="pokemon-all-types" *ngIf="types.results">
-    <div  *ngFor="let type of types.results" [ngClass]="'clickable type ' + type.name" [routerLink]="['/pokemon-type', type.name]">
-       {{ type.name | formatName }}
+<div class="all-type-container">
+    <div class="pokemon-all-types" *ngIf="types.results">
+        <div  *ngFor="let type of types.results" 
+        [ngClass]="['all-type', type.name]" 
+        [routerLink]="['/pokemon-type', type.name]">
+           {{ type.name | formatName }}
+        </div>
     </div>
 </div>

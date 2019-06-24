@@ -1,4 +1,4 @@
-<div *ngIf="item" [title]="item.name" class="pokeItem">
+<div *ngIf="item" [title]="item.name" class="pokeItem-container">
 
     <div *ngIf="item.sprites">
         <img [src]="getUrl()" style="height: 30px">
@@ -6,7 +6,7 @@
     <div *ngIf="item.name">
         {{ item.name | formatName }}
     </div>
-    <button (click)="showHide()">Show Effects</button>
+    <button (click)="showHide()" class="show-hide-item-details">Show Effects</button>
     <div *ngIf="checker" class="item-description">
         <label *ngFor="let effect of item.effect_entries" (click)="showHide()">
             {{ effect.short_effect }}
