@@ -1,5 +1,6 @@
 
 <div class="container-pokemon-details" *ngIf="isPokemonExist">
+  <div class="left-right-side">
   <div class="pokemon-name">
     <label>{{ pokemon.name | formatName }}</label>
   </div>
@@ -72,22 +73,15 @@
       <label> {{ pokemonSpecies.growth_rate.name | formatName }} </label>
   </div>
   </div>
-
+  </div>
+  <div class="left-right-side">
   <div class="pokemon-abilities" *ngIf="pokemon.abilities">    
-      <button (click)="showDetails()" class="show-hide-ability-details"> Show/Hide Abilities Detail </button>
       <div><b> Abilities: </b></div>       
       <div *ngFor="let abilities of pokemon.abilities">
-        <div *ngIf="abilities.is_hidden">
-              <b>{{ abilities.ability.name | formatName }} (HIDDEN)</b> 
-              <app-pokemon-abilities-details [abilityUrl]="abilities.ability.url" *ngIf="showDetailsBoolean"></app-pokemon-abilities-details>
-        </div>
-        <div *ngIf="!abilities.is_hidden">
-              <b>{{ abilities.ability.name | formatName }}</b>    
-              <app-pokemon-abilities-details [abilityUrl]="abilities.ability.url" *ngIf="showDetailsBoolean"></app-pokemon-abilities-details>
-        
-        </div>
+            <app-pokemon-abilities-details [abilityUrl]="abilities.ability.url"></app-pokemon-abilities-details>
       </div>
   </div>
+</div>
   <div *ngIf="pokemonSpecies.evolution_chain">
   <app-pokemon-evolution-chain [speciesUrl]="pokemonSpecies.evolution_chain.url"></app-pokemon-evolution-chain>
   </div>

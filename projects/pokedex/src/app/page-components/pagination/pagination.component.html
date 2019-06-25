@@ -1,13 +1,13 @@
 <div class="page-container">
+  
 <div [routerLink]="['../', currentPage - 1]" [ngClass]="{'page': true,  'last-first-page' : currentPage === 1}">
 PREV
 </div>
 
-<div *ngFor="let pageNum of pages" 
-  [routerLink]="['../', pageNum]" 
+<div *ngFor="let pageNum of pages" style="display: inline-block">
+<div [routerLink]="['../', pageNum]" 
   (click)="setCurrentPage(pageNum)"
-  [ngClass]="{'page': true,  'current-page' : pageNum === currentPage}">
-  {{ pageNum }}
+  [ngClass]="{'page': true,  'current-page' : pageNum === currentPage}">{{ pageNum }}</div>
 </div>
 
 <div [routerLink]="['../', currentPage + 1]" [ngClass]="{'page': true, 'last-first-page' : currentPage === totalPageCount}">

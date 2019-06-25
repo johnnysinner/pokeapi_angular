@@ -13,10 +13,12 @@ export class PokemonAbilitiesDetailsComponent implements OnInit, OnDestroy {
   ability: AbilitiesClass;
   subs: Subscription;
   check: boolean;
+  isDetailShown: boolean;
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
     this.check = false;
+    this.isDetailShown = false;
     this.subs = this.pokemonService.getAbilityDetails(this.abilityUrl).subscribe((response) => {
       this.ability = response;
       this.check = true;
@@ -25,5 +27,8 @@ export class PokemonAbilitiesDetailsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subs.unsubscribe();
+  }
+  showHide() {
+    this.isDetailShown = !this.isDetailShown;
   }
 }

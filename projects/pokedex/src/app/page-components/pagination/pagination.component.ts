@@ -35,4 +35,12 @@ export class PaginationComponent implements OnInit , OnDestroy {
   ngOnDestroy() {
     this.subs.unsubscribe();
   }
+
+  isShown(pageNum: number) {
+    if (pageNum === 3 ) {
+      return 'false';
+    } else {
+      return true;
+    }
+  }
 }

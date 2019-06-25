@@ -1,6 +1,6 @@
 .container-pokemon-details {
     text-align: center;
-    padding: 40px 0 0 0;
+    padding: 100px 0 0 0;
 }
 .not-exist {
     font-size: 30px;
@@ -70,4 +70,10 @@ html {font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "
 
 .goBack:hover {
   border: 1px black solid;
+}
+
+.left-right-side {
+  display: inline-block;
+  vertical-align: middle;
+  width: 30%;
 }

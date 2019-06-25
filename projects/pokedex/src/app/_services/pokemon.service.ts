@@ -53,11 +53,7 @@ export class PokemonService {
   }
 
   getAbilityDetails(url: string): Observable<AbilitiesClass> {
-    return this.http.get<any>(url).pipe(
-      map((response) => {
-        return response.effect_entries;
-      })
-    );
+    return this.http.get<AbilitiesClass>(url);
   }
 
   getPokemonByType(type: string): Observable<TypeClass> {
