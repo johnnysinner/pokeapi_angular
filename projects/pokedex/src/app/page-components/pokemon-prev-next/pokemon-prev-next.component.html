@@ -1,4 +1,4 @@
 <div class="adasd" *ngIf="pokemon.results">
-  <button [routerLink]="['../', goPrevious()]"> PREVIOUS {{ goPrevious() }} </button>
-  <button [routerLink]="['../', goNext()]"> NEXT  {{ goNext() }}</button>
+  <button [routerLink]="['../', goPrevious()]"> PREVIOUS <br> {{ goPrevious() | formatName }} </button>
+  <button [routerLink]="['../', goNext()]"> NEXT <br>  {{ goNext() | formatName }}</button>
 </div>

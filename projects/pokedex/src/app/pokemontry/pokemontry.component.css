@@ -7,13 +7,33 @@
     padding: 10px 0 0 0;
     font-size: 30px;
     font-family: Pokemon;
-    border: 1px solid black;
+    margin-bottom: 20px;
 }
 
-.pokemon-sprite-container {
-    border: 1px solid black;
+.pokemon-detail-container {
+    text-align: center;
+    display: inline-block;
+}
+.pokemon-detail-container div {
+    width: 400px;    
+    display: inline-block;
+    vertical-align: middle;
 }
 
-.pokemon-sprite-container img {
+.pokemon-detail-container img {
     width: 300px;
 }
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 5px;
+    text-align: left;    
+  }
+
+  .pokemon-stat-container { 
+      display: inline-block;
+      width: 50px;
+      border: 1px solid black;
+  }

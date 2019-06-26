@@ -1,80 +1,83 @@
-<div class="container-pokemon-details" *ngIf="isPokemonExist">
-  <app-pokemon-prev-next [pokemonName]="pokemon.name"></app-pokemon-prev-next><br>
-  <div class="left-right-side">
-  <div class="pokemon-name">
-    <label>{{ pokemon.name | formatName }}</label> <br>
-    <label>{{ japaneseName }}</label> 
-  </div>
-  <div class="pokemon-sprite">
-    <img [attr.src]="getImg()">
-  </div>
-  <div class="pokemon-sprite">
-    <label> ID : </label>
-    <label> {{ pokemon.id }} </label>
-  </div>
-  <div class="pokemon-type" *ngIf="pokemon.types">
-    <div [class]="types.type.name + ' type'" *ngFor="let types of pokemon.types" [routerLink]="['/pokemon-type', types.type.name]">
-      <label class="clickable">{{ types.type.name | formatName }}</label>
-    </div> <br>
-    <label> {{ genusName }} </label>
-  </div>
-  <div>
-      <label> Weight : </label>
-      <label> {{ pokemon.weight * .1 | number : '1.1' }} kg </label>
+<div class="pokemon-profile-container" *ngIf="pokemon">
+<app-pokemon-prev-next [pokemonName]="pokemon.name" *ngIf="pokemon.name"></app-pokemon-prev-next><br>
+<div class="pokemon-name-container">
+    <div *ngIf="pokemon.name">
+        {{ pokemon.name | formatName }}
     </div>
     <div>
-      <label> Height : </label>
-      <label> {{ pokemon.height * 10 | number : '1.2-2' }} cm </label>
+        {{ japaneseName }}
     </div>
+</div>
 
-
-  <div *ngIf="pokemon.stats" class="pokemon-stats display-inline-block">
-    Stats: 
-      <div *ngFor="let stats of pokemon.stats">
-          <div class="stats-container">
-              {{ stats.stat.name | formatName }} : {{ stats.base_stat }}
+<div class="pokemon-detail-container">
+    <div class="pokemon-sprite-container">
+      <img [attr.src]="getImg()" *ngIf="pokemon.sprites">
+    </div>
+    <div *ngIf="pokemon.stats" class="pokemon-stats">
+        Stats: 
+          <div *ngFor="let stats of pokemon.stats">
+              <div class="stats-container-name">
+                  {{ stats.stat.name | formatName }} : {{ stats.base_stat }}
+              </div>
+            <div class="stats-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar"
+                aria-valuemin="0" aria-valuemax="255" [style.width]="computeForPercentage(stats.base_stat)">
+                </div>
+            </div> 
           </div>
-        <div class="stats-container">
-        <div class="progress">
-            <div class="progress-bar" role="progressbar"
-            aria-valuemin="0" aria-valuemax="255" [style.width]="computeForPercentage(stats.base_stat)">
-            </div>
-        </div> 
-      </div>
-      </div>
-    </div>
-    
+          </div>
+        </div>
 
-  <div class="pokemon-details display-inline-block">
-    Pokemon Details
-  <div *ngIf="pokemonSpecies.color">
-      <label> Color : </label>
-      <label> {{ pokemonSpecies.color.name | formatName }} </label>
-  </div>
-  <div *ngIf="pokemonSpecies.habitat">
-      <label> Habitat : </label>
-      <label> {{ pokemonSpecies.habitat.name | formatName }} </label>
-  </div>
-  <div *ngIf="pokemonSpecies.shape">
-      <label> Shape : </label>
-      <label> {{ pokemonSpecies.shape.name | formatName }} </label>
-  </div>
-  <div *ngIf="pokemonSpecies.egg_groups">
-      <label> Egg Groups : </label>
-      <label *ngFor="let egg_groups of pokemonSpecies.egg_groups"> 
-        {{ egg_groups.name | formatName }} </label>
-  </div>
-  <div *ngIf="pokemonSpecies.gender_rate">
-      <label> Gender Rate : </label>
-      <label [innerHtml]="getGenderRate(pokemonSpecies.gender_rate)">
-    </label>
-  </div>
-  <div *ngIf="pokemonSpecies.growth_rate">
-      <label> Growth Rate : </label>
-      <label> {{ pokemonSpecies.growth_rate.name | formatName }} </label>
-  </div>
-  </div>
-  </div>
+    <div class="pokemon-data-container">
+            <table style="width:100%">
+            <tr>
+                <th colspan="2">Pokédex data</th>
+            </tr>
+            <tr>
+                <td>Pokemon National No.</td>
+                <td> # {{ pokemon.id | number: '3.0-0' }} </td>
+            </tr>
+            <tr>
+                <td> Type</td>
+                <td> <label *ngFor="let types of pokemon.types" 
+                  [routerLink]="['/pokemon-type', types.type.name]" 
+                  [ngClass]="['clickable', 'type', types.type.name]">
+                  {{ types.type.name | formatName }}</label> </td>
+            </tr>
+            <tr>
+                <td> Species Genus </td>
+                <td> {{ genusName }} </td>
+            </tr>
+            <tr>
+                <td> Weight </td>
+                <td> {{ pokemon.weight * .1 | number : '1.1' }} kg </td>
+            </tr>
+            <tr>
+                <td> Height </td>
+                <td> {{ pokemon.height * 10 | number : '1.1' }} cm </td>
+            </tr>
+            <tr *ngIf="pokemonSpecies.color">
+                <td> Color </td>
+                <td> {{ pokemonSpecies.color.name | formatName }} </td>
+            </tr>
+            <tr *ngIf="pokemonSpecies.habitat">
+                <td> Habitat </td>
+                <td> {{ pokemonSpecies.habitat.name | formatName }} </td>
+            </tr>
+            <tr *ngIf="pokemonSpecies.shape">
+                <td> Shape </td>
+                <td> {{ pokemonSpecies.shape.name | formatName }} </td>
+            </tr>
+            <tr>
+                <td> Gender Rate </td>
+                <td label [innerHtml]="getGenderRate(pokemonSpecies.gender_rate)"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="container-pokemon-details" *ngIf="isPokemonExist">
   <div class="left-right-side">
   <div class="pokemon-abilities" *ngIf="pokemon.abilities">    
       <div><b> Abilities: </b></div>       

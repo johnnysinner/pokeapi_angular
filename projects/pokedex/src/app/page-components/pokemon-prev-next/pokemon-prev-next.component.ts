@@ -8,7 +8,7 @@ import { Pokemon, Results } from '../../_models/pokemon.model';
   templateUrl: './pokemon-prev-next.component.html',
   styleUrls: ['./pokemon-prev-next.component.css']
 })
-export class PokemonPrevNextComponent implements OnInit, OnDestroy,OnChanges {
+export class PokemonPrevNextComponent implements OnInit, OnDestroy, OnChanges {
   subs: Subscription;
   pokemonList: any = new Array();
   pokemon = new Pokemon();
@@ -35,7 +35,6 @@ export class PokemonPrevNextComponent implements OnInit, OnDestroy,OnChanges {
       return res.name;
     }
   ).indexOf(this.pokemonName);
-  console.log(this.index);
  }
   goNext(): string {
     return (this.index === this.pokemonList.length - 1 ) ? 'none' : this.pokemon.results[this.index + 1].name;

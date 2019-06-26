@@ -77,7 +77,7 @@ export class PokemonService {
     return this.http.get<Items>(url);
   }
 
-  checkUrl(url: string) {
+  checkUrl(url: string): string {
     if ( url.charAt(url.length - 1) === '/') {
       return url.substring(0, url.length - 1);
     } else {
