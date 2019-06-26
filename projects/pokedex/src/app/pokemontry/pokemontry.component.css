@@ -1,0 +1,19 @@
+.pokemon-profile-container {
+    text-align: center;
+    padding: 10px;
+}
+
+.pokemon-name-container {
+    padding: 10px 0 0 0;
+    font-size: 30px;
+    font-family: Pokemon;
+    border: 1px solid black;
+}
+
+.pokemon-sprite-container {
+    border: 1px solid black;
+}
+
+.pokemon-sprite-container img {
+    width: 300px;
+}

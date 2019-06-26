@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Location } from '@angular/common';
+import { environment } from 'projects/pokedex/src/environments/environment';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -16,8 +17,8 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   subs: Subscription;
   offset: number;
   currentPage: number;
-  totalPokemon = 964;
-  limit = 36;
+  totalPokemon = environment.totalPokemon;
+  limit = environment.pokemonPerPage;
   constructor(
     private pokeService: PokemonService,
     private route: ActivatedRoute,

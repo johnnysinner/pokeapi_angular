@@ -23,6 +23,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SearchComponent } from './page-components/search/search.component';
 
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import { PokemontryComponent } from './pokemontry/pokemontry.component';
+import { PokemonPrevNextComponent } from './page-components/pokemon-prev-next/pokemon-prev-next.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
     PokemonItemListComponent,
     PokemonItemComponent,
     SearchComponent,
+    PokemontryComponent,
+    PokemonPrevNextComponent,
 
   ],
   imports: [

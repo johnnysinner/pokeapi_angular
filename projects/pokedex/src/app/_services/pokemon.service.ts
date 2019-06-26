@@ -9,12 +9,13 @@ import { AbilitiesClass } from '../_models/pokemon-abilities.model';
 import { TypeClass } from '../_models/pokemon-type.model';
 import { AllTypes } from '../_models/types.model';
 import { Items } from '../_models/pokemon-item.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
-  private baseUrl = 'https://pokeapi.co/api/v2';
+  private baseUrl = environment.baseUrlApi;
   constructor(private http: HttpClient) { }
 
   getPokemonList(offset: number, limit: number): Observable<Pokemon> {
@@ -65,7 +66,7 @@ export class PokemonService {
   }
 
   getAllItems(offset: number, limit: number): Observable<any> {
-    return this.http.get<any>(`https://pokeapi.co/api/v2/item/?offset=${offset}&limit=${limit}`).pipe(
+    return this.http.get<any>(`${this.baseUrl}/item/?offset=${offset}&limit=${limit}`).pipe(
       map((response) => {
         return response.results;
       })

@@ -6,6 +6,7 @@ import { PokemonProfileComponent } from './pokemon-components/pokemon-profile/po
 import { PokemonHomePageComponent } from './page-components/pokemon-home-page/pokemon-home-page.component';
 import { PokemonItemListComponent } from './pokemon-item-list/pokemon-item-list.component';
 import { PokemonListByTypeComponent } from './pokemon-components/pokemon-list-by-type/pokemon-list-by-type.component';
+import { PokemontryComponent } from './pokemontry/pokemontry.component';
 
 const routes: Routes = [
 {path: 'pokemon-list', redirectTo: 'pokemon-list/1', pathMatch: 'full'},
@@ -16,6 +17,7 @@ const routes: Routes = [
 {path: 'pokemon-type/:type', component: PokemonListByTypeComponent},
 {path: 'pokemon/:pokemonName', component: PokemonProfileComponent},
 {path: 'items/:page', component: PokemonItemListComponent},
+{path: 'try', component: PokemontryComponent},
 {path: '**', component: PageNotFoundComponent}
 ];
 

@@ -89,6 +89,7 @@
     }
 
     export class Pokemon {
+        count: number;
         abilities: Ability[];
         base_experience: number;
         forms: Form[];

@@ -5,6 +5,16 @@
 .not-exist {
     font-size: 30px;
 }
+.stats-container {
+  width: 150px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+}
+.pokemon-name label {
+  font-family: Pokemon;
+}
 .pokemon-stats, .pokemon-abilities , .pokemon-details {
     margin: 30px;
 }
@@ -23,7 +33,7 @@ html {font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "
 
 .progress {
   display: flex;
-  height: 0.5rem;
+  height: 1rem;
   overflow: hidden;
   font-size: 0.75rem;
   background-color: rgb(2, 2, 2);
@@ -39,7 +49,7 @@ html {font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  color: #fff;
+  color: #ef5350;
   text-align: center;
   background-color: #ef5350;
   transition: width .6s ease;

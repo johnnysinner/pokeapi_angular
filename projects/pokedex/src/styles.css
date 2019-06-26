@@ -72,3 +72,8 @@
 .clickable {
     cursor: pointer;
 }
+
+@font-face {
+    src: url(/assets/Pokemon.ttf);
+    font-family: Pokemon;
+}

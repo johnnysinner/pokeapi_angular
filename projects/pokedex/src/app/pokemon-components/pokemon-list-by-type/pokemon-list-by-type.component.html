@@ -2,6 +2,74 @@
 <div [ngClass]="['pokemon-container current-type', pokemonTypeParams]">
 ALL POKEMON WITH {{ pokemonTypeParams | uppercase }} TYPE
 </div>
+<div style="text-align :center" *ngIf="pokemonType.damage_relations">
+  <div class="damage-relation-container">
+  ATTACK PROS & CONS <br>
+    <!-- double_damage_to -->
+    <div *ngIf="pokemonType.damage_relations.double_damage_to.length > 0"> 
+    <img class="img-fixed icon-16" src="https://img.pokemondb.net/images/icons/tick-16.png" alt="Tick">
+    {{ pokemonTypeParams | formatName }} moves are super-effective against: <br>
+    <label *ngFor="let types of pokemonType.damage_relations.double_damage_to" 
+    [ngClass]="['type', types.name, 'clickable']"
+    [routerLink]="['../', types.name]">
+      {{ types.name | formatName }}
+    </label>
+    </div>
+    <!-- half_damage_to -->
+    <div *ngIf="pokemonType.damage_relations.half_damage_to.length > 0">
+    <img class="img-fixed icon-16" src="https://img.pokemondb.net/images/icons/cross-16.png" alt="Cross"> 
+    {{ pokemonTypeParams | formatName }} moves are not very effective against: <br>
+    <label *ngFor="let types of pokemonType.damage_relations.half_damage_to"  
+    [ngClass]="['type', types.name, 'clickable']"
+    [routerLink]="['../', types.name]">
+    {{ types.name | formatName }}
+    </label>
+    </div>
+    <!-- no_damge_to -->
+    <div *ngIf="pokemonType.damage_relations.no_damage_to.length > 0">
+    <img class="img-fixed icon-16" src="https://img.pokemondb.net/images/icons/cross-16.png" alt="Cross"> 
+    {{ pokemonTypeParams | formatName }} moves have no effect on: <br>
+    <label *ngFor="let types of pokemonType.damage_relations.no_damage_to"  
+    [ngClass]="['type', types.name, 'clickable']"
+    [routerLink]="['../', types.name]">
+    {{ types.name | formatName }}
+    </label>
+    </div>
+    </div>
+      <div class="damage-relation-container">
+  DEFENSE PROS & CONS <br>
+    <!-- no_damage_from -->
+    <div *ngIf="pokemonType.damage_relations.no_damage_from.length > 0"> 
+    <img class="img-fixed icon-16" src="https://img.pokemondb.net/images/icons/tick-16.png" alt="Tick">
+    These types have no effect on {{ pokemonTypeParams | formatName }} Pokémon: <br>
+    <label *ngFor="let types of pokemonType.damage_relations.no_damage_from" 
+    [ngClass]="['type', types.name, 'clickable']"
+    [routerLink]="['../', types.name]">
+      {{ types.name | formatName }}
+    </label>
+    </div>
+    <!-- half_damage_from -->
+    <div *ngIf="pokemonType.damage_relations.half_damage_from.length > 0">
+    <img class="img-fixed icon-16" src="https://img.pokemondb.net/images/icons/tick-16.png" alt="Tick">
+    These types are not very effective against {{ pokemonTypeParams | formatName }} Pokémon:<br>
+    <label *ngFor="let types of pokemonType.damage_relations.half_damage_from"  
+    [ngClass]="['type', types.name, 'clickable']"
+    [routerLink]="['../', types.name]">
+    {{ types.name | formatName }}
+    </label>
+    </div>
+    <!-- double_damage_from -->
+    <div *ngIf="pokemonType.damage_relations.double_damage_from.length > 0">
+    <img class="img-fixed icon-16" src="https://img.pokemondb.net/images/icons/cross-16.png" alt="Cross"> 
+    These types are super-effective against {{ pokemonTypeParams | formatName }} Pokémon:<br>
+    <label *ngFor="let types of pokemonType.damage_relations.double_damage_from"  
+    [ngClass]="['type', types.name, 'clickable']"
+    [routerLink]="['../', types.name]">
+    {{ types.name | formatName }}
+    </label>
+    </div>
+    </div>
+</div>
 <div class="pokemon-container" *ngIf="pokemonType.pokemon">
   <div *ngFor="let pokemon of pokemonType.pokemon" class="pokemon-name" [routerLink]="['/pokemon', pokemon.pokemon.name ]">
         <div class="pokemon-detail">{{ pokemon.pokemon.name | formatName }}</div>
@@ -10,4 +78,5 @@ ALL POKEMON WITH {{ pokemonTypeParams | uppercase }} TYPE
   <div>
   <img class="back-to-top-btn" src="/assets/backtotop.png" alt="Back to top button" (click)="scrollToTop()">
 </div>
+
 </div>

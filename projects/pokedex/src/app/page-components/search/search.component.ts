@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit, OnDestroy {
    */
   reactiveForm: FormGroup;
 
-  public placeholder = 'Enter Pokemon Name';
+  public placeholder = 'Search Pokemon Here';
   public keyword = 'name';
   public historyHeading = 'Recently selected';
 

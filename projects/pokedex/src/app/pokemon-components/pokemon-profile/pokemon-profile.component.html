@@ -1,5 +1,5 @@
-
 <div class="container-pokemon-details" *ngIf="isPokemonExist">
+  <app-pokemon-prev-next [pokemonName]="pokemon.name"></app-pokemon-prev-next><br>
   <div class="left-right-side">
   <div class="pokemon-name">
     <label>{{ pokemon.name | formatName }}</label> <br>
@@ -31,14 +31,13 @@
   <div *ngIf="pokemon.stats" class="pokemon-stats display-inline-block">
     Stats: 
       <div *ngFor="let stats of pokemon.stats">
-        <div class="stats-container">
-            {{ stats.stat.name | formatName }} : {{ stats.base_stat }}
-        </div>
+          <div class="stats-container">
+              {{ stats.stat.name | formatName }} : {{ stats.base_stat }}
+          </div>
         <div class="stats-container">
         <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="70"
-            aria-valuemin="0" aria-valuemax="100" [style.width]="computeForPercentage(stats.base_stat)">
-            {{ stats.base_stat }}
+            <div class="progress-bar" role="progressbar"
+            aria-valuemin="0" aria-valuemax="255" [style.width]="computeForPercentage(stats.base_stat)">
             </div>
         </div> 
       </div>

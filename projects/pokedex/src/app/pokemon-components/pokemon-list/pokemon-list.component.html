@@ -5,8 +5,8 @@
 <div class="pokemon-container">
   <div *ngFor="let pokemon of pokemonList.results" class="pokemon-name" [routerLink]="['/pokemon', pokemon.name ]">
     <div class="pokemon-detail">{{ pokemon.name | formatName }}</div>
+    <div class="pokemon-detail"># {{ getIdByUrl(pokemon.url) }}</div>
     <app-pokemon-sprite-and-type [pokemonName]="pokemon.name" *ngIf="pokemon.name"></app-pokemon-sprite-and-type>
-    <div>ID: {{ getIdByUrl(pokemon.url) }}</div>
   </div>
 </div>
 
