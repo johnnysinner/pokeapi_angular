@@ -5,7 +5,8 @@
     transition: all 2s;
     padding: 10px;
     margin: 5px;
-    display: inline-block;
+    display: none;
+    width: 40px;
 }
 
 .page:hover {
@@ -23,5 +24,14 @@
     pointer-events: none;
 }
 .page-container {
+    text-align: center;
+}
+.show-page {
+    display: inline-block;
+}
+.go-to-page-input {
+    height: 25px;
+    width: 30px;
+    margin: 5px;
     text-align: center;
 }

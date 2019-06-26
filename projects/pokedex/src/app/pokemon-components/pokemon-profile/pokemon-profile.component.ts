@@ -23,6 +23,8 @@ export class PokemonProfileComponent implements OnInit, OnDestroy, OnChanges {
   isPokemonExist: boolean;
   check: boolean;
   showDetailsBoolean: boolean;
+  genusName: string;
+  japaneseName: string;
   constructor(
     private pokemonService: PokemonService,
     private route: ActivatedRoute,
@@ -41,7 +43,7 @@ export class PokemonProfileComponent implements OnInit, OnDestroy, OnChanges {
           switchMap((pokemonresponse: Pokemon) => {
             this.isPokemonExist = true;
             this.pokemon = pokemonresponse;
-            return this.pokemonService.getPokemonSpeciesByUrl(pokemonresponse.species.url);
+            return this.pokemonService.getPokemonSpeciesByUrl(this.checkUrl(pokemonresponse.species.url));
           })
         );
       })
@@ -49,6 +51,7 @@ export class PokemonProfileComponent implements OnInit, OnDestroy, OnChanges {
       (pokemonSpeciesResponse: SpeciesClass) => {
       this.pokemonSpecies = pokemonSpeciesResponse;
       this.check = true;
+      this.getOtherDetails();
       },
       error => {
         this. isPokemonExist = error.ok;
@@ -101,5 +104,28 @@ export class PokemonProfileComponent implements OnInit, OnDestroy, OnChanges {
 
   computeForPercentage(stats: number) {
     return (stats * 100 / 255) + '%';
+  }
+
+  checkUrl(url: string) {
+    if ( url.charAt(url.length - 1) === '/') {
+      return url.substring(0, url.length - 1);
+    } else {
+      return url;
+    }
+  }
+
+  getOtherDetails() {
+    for (const gen of this.pokemonSpecies.genera) {
+      if (gen.language.name === 'en') {
+        this.genusName = gen.genus;
+        break;
+      }
+    }
+    for (const gen of this.pokemonSpecies.names) {
+      if (gen.language.name === 'ja') {
+        this.japaneseName = gen.name;
+        break;
+      }
+    }
   }
 }

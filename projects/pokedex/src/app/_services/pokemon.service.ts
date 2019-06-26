@@ -37,7 +37,7 @@ export class PokemonService {
     return this.http.get<any>(`${this.baseUrl}/pokemon/${name}`).pipe(
       switchMap(
         (response) => {
-        return this.http.get<SpeciesClass>(response.species.url).pipe(
+        return this.http.get<SpeciesClass>(this.checkUrl(response.species.url)).pipe(
           switchMap(
             (response1: SpeciesClass) => {
               return this.http.get<any>(response1.evolution_chain.url).pipe(
@@ -74,5 +74,13 @@ export class PokemonService {
 
   getItemDetails(url: string): Observable<Items> {
     return this.http.get<Items>(url);
+  }
+
+  checkUrl(url: string) {
+    if ( url.charAt(url.length - 1) === '/') {
+      return url.substring(0, url.length - 1);
+    } else {
+      return url;
+    }
   }
 }

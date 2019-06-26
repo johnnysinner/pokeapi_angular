@@ -1,7 +1,8 @@
-<div class="pokemon-container">
-  <h1 class="pokemon-list-header">
+<h1 class="pokemon-list-header">
     POKEDEX
   </h1>
+<app-pagination [limitPerPage]="limit" [totalItem]="totalPokemon"></app-pagination>
+<div class="pokemon-container">
   <div *ngFor="let pokemon of pokemonList.results" class="pokemon-name" [routerLink]="['/pokemon', pokemon.name ]">
     <div class="pokemon-detail">{{ pokemon.name | formatName }}</div>
     <app-pokemon-sprite-and-type [pokemonName]="pokemon.name" *ngIf="pokemon.name"></app-pokemon-sprite-and-type>

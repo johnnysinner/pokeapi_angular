@@ -2,7 +2,8 @@
 <div class="container-pokemon-details" *ngIf="isPokemonExist">
   <div class="left-right-side">
   <div class="pokemon-name">
-    <label>{{ pokemon.name | formatName }}</label>
+    <label>{{ pokemon.name | formatName }}</label> <br>
+    <label>{{ japaneseName }}</label> 
   </div>
   <div class="pokemon-sprite">
     <img [attr.src]="getImg()">
@@ -14,7 +15,8 @@
   <div class="pokemon-type" *ngIf="pokemon.types">
     <div [class]="types.type.name + ' type'" *ngFor="let types of pokemon.types" [routerLink]="['/pokemon-type', types.type.name]">
       <label class="clickable">{{ types.type.name | formatName }}</label>
-    </div>
+    </div> <br>
+    <label> {{ genusName }} </label>
   </div>
   <div>
       <label> Weight : </label>
@@ -83,7 +85,7 @@
   </div>
 </div>
   <div *ngIf="pokemonSpecies.evolution_chain">
-  <app-pokemon-evolution-chain [speciesUrl]="pokemonSpecies.evolution_chain.url"></app-pokemon-evolution-chain>
+  <app-pokemon-evolution-chain [speciesUrl]="checkUrl(pokemonSpecies.evolution_chain.url)"></app-pokemon-evolution-chain>
   </div>
 
   <img src="assets/pokeball.gif" *ngIf="!check" class="loading-ball">

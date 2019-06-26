@@ -1,17 +1,50 @@
 <div class="page-container">
-  
-<div [routerLink]="['../', currentPage - 1]" [ngClass]="{'page': true,  'last-first-page' : currentPage === 1}">
-PREV
+  <div *ngIf="isGoToShown">
+  <input type="text" 
+  class="go-to-page-input" 
+  [formControl]="goToPage"
+  placeholder="page">
+  <button class="go-to-page-input" [routerLink]="['../', goToPage.value]">GO</button>
+  </div>
+<div [routerLink]="['../', currentPage - 1]" [ngClass]="{'page': true,  'last-first-page' : currentPage === 1, 'show-page' : true}">
+  ←
 </div>
-
-<div *ngFor="let pageNum of pages" style="display: inline-block">
+<div [routerLink]="['../', pages[0]]" 
+  (click)="setCurrentPage(pages[0])"
+  [ngClass]="{'page': true,  'current-page' : pages[0] === currentPage, 
+  'show-page' : true }">
+   {{ pages[0] }}
+</div>
+<div
+  [ngClass]="{'page': true,
+  'show-page' :  currentPage > 3 }"
+  (click)="isGoToShown =! isGoToShown">
+   ...
+</div>
+<div *ngFor="let pageNum of middlePages" style="display: inline-block">
 <div [routerLink]="['../', pageNum]" 
   (click)="setCurrentPage(pageNum)"
-  [ngClass]="{'page': true,  'current-page' : pageNum === currentPage}">{{ pageNum }}</div>
+  [ngClass]="{'page': true,  'current-page' : pageNum === currentPage, 
+  'show-page' : pageNum + 1 === currentPage || pageNum - 1 === currentPage || pageNum === currentPage }">
+  {{ pageNum }}
+</div>
+</div>
+<div
+  [ngClass]="{'page': true,
+  'show-page' :  pages[pages.length - 3] > currentPage }"
+  (click)="isGoToShown =! isGoToShown">
+   ...
+</div>
+<div [routerLink]="['../', pages[pages.length -1]]" 
+  (click)="setCurrentPage(pages[pages.length -1])"
+  [ngClass]="{'page': true,  'current-page' : pages[pages.length -1] === currentPage, 
+  'show-page' : true }">
+   {{ pages[pages.length -1] }}
 </div>
 
-<div [routerLink]="['../', currentPage + 1]" [ngClass]="{'page': true, 'last-first-page' : currentPage === totalPageCount}">
-NEXT
+
+<div [routerLink]="['../', currentPage + 1]" [ngClass]="{'page': true, 'last-first-page' : currentPage === totalPageCount, 'show-page' : true}">
+  →
 </div>
 
 </div>

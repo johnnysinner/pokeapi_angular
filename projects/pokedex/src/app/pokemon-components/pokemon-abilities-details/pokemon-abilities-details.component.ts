@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, OnChanges } from '@angular/core';
 import { AbilitiesClass } from '../../_models/pokemon-abilities.model';
 import { Subscription } from 'rxjs';
 import { PokemonService } from '../../_services/pokemon.service';
@@ -8,7 +8,7 @@ import { PokemonService } from '../../_services/pokemon.service';
   templateUrl: './pokemon-abilities-details.component.html',
   styleUrls: ['./pokemon-abilities-details.component.css']
 })
-export class PokemonAbilitiesDetailsComponent implements OnInit, OnDestroy {
+export class PokemonAbilitiesDetailsComponent implements OnInit, OnDestroy, OnChanges {
   @Input() abilityUrl: string;
   ability: AbilitiesClass;
   subs: Subscription;
@@ -16,6 +16,9 @@ export class PokemonAbilitiesDetailsComponent implements OnInit, OnDestroy {
   isDetailShown: boolean;
   constructor(private pokemonService: PokemonService) { }
 
+  ngOnChanges() {
+    this.isDetailShown = false;
+  }
   ngOnInit() {
     this.check = false;
     this.isDetailShown = false;

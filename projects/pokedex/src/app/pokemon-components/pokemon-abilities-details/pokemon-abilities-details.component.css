@@ -3,8 +3,4 @@
     color: blue;
     text-decoration: underline;
     margin: 5px;
-    transition: all .5s;
-}
-.ability-detail-name:hover {
-    font-size: 15px;
 }

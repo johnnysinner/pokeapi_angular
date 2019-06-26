@@ -1,11 +1,15 @@
-<div (click)="showHide()" *ngIf="ability" class="ability-detail-name">{{ ability.name | formatName}} </div>
+<div *ngIf="ability">
+    <b>{{ ability.name | formatName}} </b>
+</div>
 
 <div *ngIf="ability">
 <div *ngFor="let detail of ability.effect_entries" >
     <div class="pokemon-evolve" *ngIf="!check">
         <img src="assets\pokeball.gif" class="loading-ball">
     </div>
-    <label *ngIf="isDetailShown">{{ detail.effect }}</label>
+    <label *ngIf="!isDetailShown">{{ detail.short_effect }}</label>
+    <label *ngIf="isDetailShown">{{ detail.effect }}</label><br>
+    <label *ngIf="!isDetailShown" class="ability-detail-name" (click)="showHide()">[Show Full Details]</label>
 </div>
 </div>
     
