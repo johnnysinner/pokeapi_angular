@@ -36,15 +36,19 @@ export class PokemonPrevNextComponent implements OnInit, OnDestroy, OnChanges {
     }
   ).indexOf(this.pokemonName);
  }
-  goNext(): string {
+  nextPokemon(): string {
     return (this.index === this.pokemonList.length - 1 ) ? 'none' : this.pokemon.results[this.index + 1].name;
   }
-  goPrevious(): string {
+  prevPokemon(): string {
     return (this.index === 0) ? 'none' : this.pokemon.results[this.index - 1].name;
   }
 
   ngOnDestroy() {
     this.subs.unsubscribe();
+  }
+
+  getIdByUrl(url: string) {
+    return url.split('/')[6];
   }
 
 }

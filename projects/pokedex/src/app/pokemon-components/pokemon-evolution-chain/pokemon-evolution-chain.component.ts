@@ -50,12 +50,17 @@ export class PokemonEvolutionChainComponent implements OnInit, OnDestroy, OnChan
       return false;
     }
   }
-
-  checkIfItIswormadam(wormadam: string) {
-    if (wormadam === 'wormadam') {
+  checkIfItIsWrongInApi(pokemonName: string) {
+    if (pokemonName === 'wormadam') {
       return 'wormadam-plant';
+    } else if (pokemonName === 'darmanitan') {
+      return 'darmanitan-zen';
+    } else if (pokemonName === 'pumpkaboo') {
+      return 'pumpkaboo-average';
+    } else if (pokemonName === 'gourgeist') {
+      return 'gourgeist-average';
     } else {
-      return wormadam;
+      return pokemonName;
     }
   }
 

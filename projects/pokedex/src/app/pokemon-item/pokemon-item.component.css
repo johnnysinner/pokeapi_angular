@@ -21,6 +21,7 @@
     font-size: 15px;
     border: 1px solid black;
     transition: .2s;
+    padding: 10px;
 }
 
 .item-description:hover {
@@ -30,6 +31,18 @@
 
 .item-description label {
     cursor: pointer;
+}
+.close {
+    position: absolute;
+    top: -5px;
+    right: 2px;
+    color: red;
+    transition: all 1s;
+    font-size: 20px;
+}
+
+.close:hover {
+    color: blue;
 }
 
 button {

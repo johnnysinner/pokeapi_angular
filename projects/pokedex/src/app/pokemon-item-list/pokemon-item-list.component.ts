@@ -16,7 +16,7 @@ export class PokemonItemListComponent implements OnInit, OnDestroy {
   offset: number;
   currentPage: number;
   totalItems = 954;
-  limit = 60;
+  limit = 45;
 
   constructor(
     private pokeService: PokemonService,

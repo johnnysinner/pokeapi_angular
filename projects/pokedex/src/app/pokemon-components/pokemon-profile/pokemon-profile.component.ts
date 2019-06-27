@@ -25,6 +25,7 @@ export class PokemonProfileComponent implements OnInit, OnDestroy, OnChanges {
   showDetailsBoolean: boolean;
   genusName: string;
   japaneseName: string;
+  imageSources = new Array();
   constructor(
     private pokemonService: PokemonService,
     private route: ActivatedRoute,
@@ -52,7 +53,12 @@ export class PokemonProfileComponent implements OnInit, OnDestroy, OnChanges {
       this.pokemonSpecies = pokemonSpeciesResponse;
       this.check = true;
       this.getOtherDetails();
-      },
+      this.imageSources = [];
+      this.pushImageUrl(this.pokemon.sprites.front_default, this.imageSources);
+      this.pushImageUrl(this.pokemon.sprites.back_default, this.imageSources);
+      this.pushImageUrl(this.pokemon.sprites.front_shiny, this.imageSources);
+      this.pushImageUrl(this.pokemon.sprites.back_shiny, this.imageSources);
+    },
       error => {
         this. isPokemonExist = error.ok;
       }
@@ -71,8 +77,8 @@ export class PokemonProfileComponent implements OnInit, OnDestroy, OnChanges {
     this.location.go('pokemon-list/1');
   }
 
-  getImg() {
-    return (this.pokemon.sprites.front_default !== null ) ? this.pokemon.sprites.front_default : this.defaultImg;
+  getImg(imageUrl: string) {
+    return (imageUrl !== null ) ? imageUrl : this.defaultImg;
   }
 
   showDetails() {
@@ -127,5 +133,10 @@ export class PokemonProfileComponent implements OnInit, OnDestroy, OnChanges {
         break;
       }
     }
+  }
+
+  pushImageUrl(sprites: string, imageSources: any) {
+    const url = this.getImg(sprites);
+    imageSources.push(url);
   }
 }

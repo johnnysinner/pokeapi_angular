@@ -1,6 +1,6 @@
 <h1 class="pokemon-list-header">
-    POKEDEX
-  </h1>
+  POKEDEX
+</h1>
 <app-pagination [limitPerPage]="limit" [totalItem]="totalPokemon"></app-pagination>
 <div class="pokemon-container">
   <div *ngFor="let pokemon of pokemonList.results" class="pokemon-name" [routerLink]="['/pokemon', pokemon.name ]">

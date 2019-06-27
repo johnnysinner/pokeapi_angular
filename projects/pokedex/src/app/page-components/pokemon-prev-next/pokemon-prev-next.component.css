@@ -1,0 +1,23 @@
+.prev-next-container{
+    display: block;
+}
+
+.button-next, .button-prev {    
+    width: 50%;
+    display: inline-block;
+    color: blue;
+    padding: 3px;
+    position: relative;
+    text-decoration: underline;
+    font-size: 15px;
+    margin-bottom: 20px;
+    z-index: 0;
+}
+.button-next:hover, .button-prev:hover {
+    top: -5px;
+    cursor: pointer;
+}
+
+.button-next label, .button-prev label{
+    cursor: pointer;
+}

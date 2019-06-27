@@ -1,4 +1,9 @@
-<div class="adasd" *ngIf="pokemon.results">
-  <button [routerLink]="['../', goPrevious()]"> PREVIOUS <br> {{ goPrevious() | formatName }} </button>
-  <button [routerLink]="['../', goNext()]"> NEXT <br>  {{ goNext() | formatName }}</button>
+<div class="prev-next-container" *ngIf="pokemon.results">
+  <div class="button-prev" *ngIf="index != 0" [routerLink]="['../', prevPokemon()]">
+          <label>◄ {{ prevPokemon() | formatName }} #{{ getIdByUrl(pokemon.results[index - 1].url) | number: '3.0-0' }} </label>
+  </div>
+
+  <div class="button-next" *ngIf="index != pokemon.results.length - 1" [routerLink]="['../', nextPokemon()]">
+          <label>{{ nextPokemon() | formatName }} #{{ getIdByUrl(pokemon.results[index + 1].url) | number: '3.0-0' }} ► </label>
+  </div>
 </div>

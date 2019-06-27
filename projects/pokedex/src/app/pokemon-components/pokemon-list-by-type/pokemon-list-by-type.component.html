@@ -76,7 +76,7 @@ ALL POKEMON WITH {{ pokemonTypeParams | uppercase }} TYPE
         <app-pokemon-sprite-and-type [pokemonName]="pokemon.pokemon.name" *ngIf="pokemon.pokemon.name"></app-pokemon-sprite-and-type>
   </div>
   <div>
-  <img class="back-to-top-btn" src="/assets/backtotop.png" alt="Back to top button" (click)="scrollToTop()">
+  <img class="back-to-top-btn" [attr.src]="'/assets/backtotop.png'" alt="Back to top button" (click)="scrollToTop()">
 </div>
 
 </div>

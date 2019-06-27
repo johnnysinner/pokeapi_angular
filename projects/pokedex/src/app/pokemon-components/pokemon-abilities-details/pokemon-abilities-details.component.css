@@ -2,5 +2,18 @@
     cursor: pointer;
     color: blue;
     text-decoration: underline;
-    margin: 5px;
+    margin-bottom: 50px;
+}
+.ability-container {
+  padding: 0 20px;
+  margin: 0 0 20px 0;
+  width: 500px;
+  display: inline-block;
+  text-align: center;
+}
+.ability-container-1 {
+  text-align: center;
+}
+.full-details {
+  text-align: justify;
 }

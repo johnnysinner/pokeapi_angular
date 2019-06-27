@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PokemonListComponent } from './pokemon-components/pokemon-list/pokemon-list.component';
 import { PokemonSpriteComponent } from './pokemon-components/pokemon-sprite-and-type/pokemon-sprite.component';
 import { PaginationComponent } from './page-components/pagination/pagination.component';
-import { FormatName } from './_pipe/formatname.pipe';
+import { FormatNamePipe } from './_pipe/formatname.pipe';
 import { PageNotFoundComponent } from './page-components/page-not-found/page-not-found.component';
 import { PokemonProfileComponent } from './pokemon-components/pokemon-profile/pokemon-profile.component';
 import { PokemonTopBarComponent } from './page-components/pokemon-top-bar/pokemon-top-bar.component';
@@ -25,14 +25,18 @@ import { SearchComponent } from './page-components/search/search.component';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { PokemontryComponent } from './pokemontry/pokemontry.component';
 import { PokemonPrevNextComponent } from './page-components/pokemon-prev-next/pokemon-prev-next.component';
-
+import {SlideshowModule} from 'ng-simple-slideshow';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule, MatSidenavModule, MatListModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatMenuModule } from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
     PokemonListComponent,
     PokemonSpriteComponent,
     PaginationComponent,
-    FormatName,
+    FormatNamePipe,
     PageNotFoundComponent,
     PokemonProfileComponent,
     PokemonTopBarComponent,
@@ -45,16 +49,25 @@ import { PokemonPrevNextComponent } from './page-components/pokemon-prev-next/po
     PokemonItemComponent,
     SearchComponent,
     PokemontryComponent,
-    PokemonPrevNextComponent,
-
-  ],
+    PokemonPrevNextComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    SlideshowModule,
+    // https://www.npmjs.com/package/ng-simple-slideshow
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

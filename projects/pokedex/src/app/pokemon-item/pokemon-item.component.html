@@ -8,9 +8,13 @@
     </div>
     <button (click)="showHide()" class="show-hide-item-details">Show Effects</button>
     <div *ngIf="checker" class="item-description">
+        <b>
+        {{ item.name | formatName }} <br> 
+        </b>
         <label *ngFor="let effect of item.effect_entries" (click)="showHide()">
             {{ effect.short_effect }}
         </label>
+        <label class="close" (click)="checker = false" title="close"> × </label>
     </div>
     
 </div>
